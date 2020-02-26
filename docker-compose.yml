@@ -11,7 +11,7 @@ services:
   app:
      image: node:11
      ports:
-       - "3004:3004"
+       - "3008:3008"
      working_dir: /usr/src/caltia/
      restart: always
      volumes:
@@ -25,5 +25,5 @@ services:
        - CAL_DB_HOST=db
        - APP_ADMIN_EMAIL=admin@admin.com
        - APP_ADMIN_PASS=12345
-       - APP_URL=http://198.101.187.112:3004
-       - APP_PORT=3004
+       - APP_URL=http://198.101.187.112:3008
+       - APP_PORT=3008
