@@ -1,0 +1,35 @@
+{
+  "name": "caltia",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Carlos Zendejas czendejas@banwire.com"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.5",
+    "jquery": "^3.2.1",
+    "jquery-validation": "^1.17.0",
+    "angularUtils-pagination": "angular-utils-pagination#^0.11.1",
+    "angular-resource": "^1.6.6",
+    "angular-cookies": "^1.6.6",
+    "angular-sanitize": "^1.6.6",
+    "angularjs-slider": "^6.4.0",
+    "angular-ui-router": "^1.0.6",
+    "ngToast": "ngtoast#^2.0.0",
+    "angular-notify": "^2.5.1"
+  },
+  "resolutions": {
+    "angular": "1.7.2",
+    "angular-sanitize": "1.7.2",
+    "ngToast":"2.0.0"
+  }
+}

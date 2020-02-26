@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leescúbrelo | Essay Writing Competition</title>
+    <%include includes/header.ejs%>
+</head>
+<body>
+    <div class="main">
+        <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+            <div class="uk-navbar-left">
+                <a class="uk-navbar-item uk-logo" href="/"><img src="/images/logo3.png"/></a>
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href=""></a></li>
+                    <li class="uk-parent"><a href=""></a></li>
+                    <li><a href=""></a></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active">
+                        <a>
+                            <button class="uk-button uk-button-primary"><%=user.name%></button>
+                            <ul data-uk-dropdown class="uk-nav uk-nav-dropdown">
+                                    <li><a href="/student/edit-profile">Edit Profile</a></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="uk-active"><a href="/logout"><button class="uk-button uk-button-primary">CERRAR SESIÓN</button></a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container edit-profile">
+            <div class="main-container">
+                <h1 class="uk-text-center purple">Editar cuenta</h1>
+                <form id="registrationForm" action="/student/update" method="POST" class="">
+                    <div class="uk-fieldset uk-grid-small" uk-grid>     
+                        <div class="uk-width-1-2@s input-containers">
+                            <div>
+                                <input class="uk-input" type="text" placeholder="Name" name="name" value="<%=user.name%>" required>
+                            </div>
+                            <div >
+                                <input class="uk-input" type="text" placeholder="Middle Name" name="middleName" value="<%=user.middlename%>" required>
+                            </div>
+                            <div>
+                                <input class="uk-input" type="text" placeholder="Last Name" name="lastName" value="<%=user.lastname%>" required>
+                            </div>
+                            <div>
+                                <select class="uk-select" name="school" value="<%=user.school%>" required>
+                                    <%schools.forEach(function(school){%>
+                                        <option value="<%=school.name%>"
+                                            <%  
+                                                if(user.school == school.name){
+                                                    %>
+                                                    selected
+                                                    <%
+                                                }
+                                            %>
+                                            ><%=school.name%></option>
+                                    <%})%>
+                                </select>
+                            </div>
+                            <div class="grade-container">
+                                <label class="uk-form-label label" for="form-stacked-text">Grado</label>
+                                <div class="uk-form-controls">
+                                    <label><input class="uk-radio" type="radio" name="grade" value="1" 
+                                    <%  
+                                        if(user.grade == 1){
+                                            %>
+                                            checked
+                                            <%
+                                        }
+                                    %>
+                                    > 1ro</label>
+                                    <label><input class="uk-radio" type="radio" name="grade" value="2"
+                                        <%  
+                                            if(user.grade == 2){
+                                                %>
+                                                checked
+                                                <%
+                                            }
+                                        %>
+                                    > 2do</label>
+                                    <label><input class="uk-radio" type="radio" name="grade" value="3"
+                                        <%  
+                                            if(user.grade == 3){
+                                                %>
+                                                checked
+                                                <%
+                                            }
+                                        %>
+                                    > 3er</label>
+                                </div>
+                            </div>
+                        </div>    
+                        <div class="uk-width-1-2@s input-containers">
+                            <div>
+                                <input class="uk-input" type="text" placeholder="Entity" name="entity" value="<%=user.entity%>" required>
+                            </div>
+                            
+                            <div>
+                                <input class="uk-input" type="text" placeholder="Curp" name="curp" value="<%=user.curp%>" required>
+                            </div>
+                            
+                            <div>
+                                <input class="uk-input" type="email" placeholder="Email" name="email" value="<%=user.email%>" readonly>
+                            </div>
+                            
+                            <!-- <div>
+                                <input class="uk-input" type="password" placeholder="Password" name="password" required>
+                            </div>
+                            
+                            <div>
+                                <input class="uk-input" type="password" placeholder="Repeat Password" name="repeatPassword" required>
+                            </div> -->
+                        </div>   
+                        <div class="register-button-container uk-text-center">
+                            <button type="input" class="uk-button uk-button-primary blue-bg">GUARDAR</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <% include includes/footer.ejs %>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<div class="container evaluate">
+    <div class="uk-grid" uk-grid>
+        <div class="uk-width-2-3@s left-section">
+            <div class="uk-grid" uk-grid>
+                <div class="uk-width-2-3@s uk-text-left">
+                    <dl class="uk-description-list">
+                        <dt>Nombre</dt>
+                        <dd><b>{{finalEvaluateController.student.name}} {{finalEvaluateController.student.middlename}} {{finalEvaluateController.student.lastname}}</b></dd>
+                        <dt>Correo electrónico</dt>
+                        <dd><b>{{finalEvaluateController.student.email}}</b></dd>
+                    </dl>
+                </div>
+                <div class="uk-width-1-3@s  uk-text-left uk-text-right@s ">
+                    <dl class="uk-description-list">
+                        <dt>Escuela</dt>
+                        <dd><b>{{finalEvaluateController.student.school}}</b></dd>
+                        <dt>Grado</dt>
+                        <dd><b>{{finalEvaluateController.student.grade}}</b></dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="uk-grid" uk-grid >
+                <div class="uk-width-1-2 uk-text-left">
+                    <div>
+                    {{finalEvaluateController.student.status}}
+                    </div>
+                </div>
+                <div class="uk-width-1-2 uk-text-right">
+                    <div>
+                    {{finalEvaluateController.getWordsLength(finalEvaluateController.student.essay) || 0}} / 800
+                    </div>
+                </div>
+                <div class="uk-width-1-1">
+                    <h3 class="uk-text-left">{{finalEvaluateController.student.title}}</h3>
+                </div>
+                <div class="uk-width-1-1" style="margin-top:5px;">
+                    <textarea readonly class="uk-input">{{finalEvaluateController.student.essay}}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="uk-width-1-3@s right-section">
+            <div class="inner-section" style="height:100%;">
+                <div class="uk-width-1-1 uk-margin">
+                        <button class="uk-button uk-button-primary" ng-click="finalEvaluateController.goBack()" type="button"><i class="fa fa-arrow-left"></i> Back</button>
+                        <h5>Comentarios</h5>
+                        <ul>
+                            <li ng-repeat="comment in finalEvaluateController.comments">
+                                {{comment.comment}}
+                            </li>
+                        </ul>
+                        <textarea class="uk-textarea" style="width:100%; " ng-model="finalEvaluateController.moderatorComments">
+                        </textarea>
+                        <div class="uk margin uk-text-center uk-grid" uk-grid style="margin-top: 20px;">
+                            <div class="uk-width-1-2 uk-text-left">
+                                <button class="uk-button uk-button-primary" type="button" ng-click="finalEvaluateController.rejectEvaluation()" style="background-color:red !important;">Rechazar</button>
+                            </div>
+                            <div class="uk-width-1-2 uk-text-right">
+                                <button class="uk-button uk-button-primary" ng-click="finalEvaluateController.markFinalist()">Finalista</button>
+                            </div>
+                            
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

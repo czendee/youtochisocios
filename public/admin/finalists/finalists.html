@@ -1,0 +1,60 @@
+<div class="container teachers" style="padding:30px">
+    <div class="uk-grid" uk-grid>
+        <div class="uk-width-1-1 uk-text-right">
+            <a href="/admin/student/finalist-report" target="_blank" download="clients.csv" class="inline-block"><button class="uk-button uk-button-primary">Descargar Reporte</button></a>
+        </div>
+
+        <div class="uk-width-1-1 uk-text-right">
+             Concursos:
+           <select  ng-model="finalistsController.searchcoupon.concursoCode">
+                 
+                 <option ng-repeat="student in finalistsController.finalists   | orderBy : 'concursoCode' "  ng-if="student.concursoCode!= finalistsController.finalists[$index - 1].concursoCode"   value="{{student.concursoCode}}">{{student.concursoCode}}</option>
+             </select>
+           <!--  <button class="uk-button uk-button-primary"  ng-click=" " type="button">FILTRAR</button>  -->
+        </div> 
+        
+        <div class="uk-width-1-1">
+            <table class="uk-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Escuela</th>
+                        <th>Maestro1</th>
+                        <th>Maestro1 Grado</th>
+                        <th>Maestro2</th>
+                        <th>Maestro2 Grado</th>
+                        <th>Total</th>
+                        <th>Concurso</th>
+                        <th>Status</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="student in finalistsController.finalists"  ng-if ="student.concursoCode == finalistsController.searchcoupon.concursoCode">
+                        <td>{{student.name}} {{student.middlename}} {{student.lastname}}</td>
+                        <td>{{student.school}}</td>
+                        <td>{{student.evaluation1TeacherModel.name}}</td>
+                        <td>{{student.teacher1Total || 0}}</td>
+                        <td>{{student.evaluation2TeacherModel.name}}</td>
+                        <td>{{student.teacher2Total || 0}}</td>
+                        <td>{{student.total}}</td>
+                        <td>{{student.concursoCode}} </td>
+                        <td>
+                            <span ng-if="student.finalist==false">
+                                Rechazado
+                            </span>
+                            <span ng-if="student.finalist==true">
+                                Finalista
+                            </span>
+                            <span ng-if="student.finalist==null">
+                                Pendiente de evaluación final
+                            </span>
+
+                        </td>
+                        <td><a ui-sref="finalEvaluate({studentId:student.id})"><button class="uk-button uk-button-primary" ng-click="finalistsController.markAsFinalist()">Revisión Final</button></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

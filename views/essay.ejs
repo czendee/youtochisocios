@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leescúbrelo | Essay Writing Competition</title>
+    <%include includes/header.ejs%>
+</head>
+<body>
+    <%
+        var minWords=480;
+        var maxWords=720;
+        var wordsconvocatoria =600;
+        var words = 720;
+        if(user.grade==2){
+            minWords=640;
+            maxWords=960;
+            
+            words=960;
+            wordsconvocatoria =800;
+        }
+        else if(user.grade==3){
+            minWords=800;
+            maxWords=1200;
+            words=1200;
+            wordsconvocatoria =1000;
+        }
+    %>
+    <div class="main">
+        <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+            <div class="uk-navbar-left">
+                <a class="uk-navbar-item uk-logo"><img src="/images/logo3.png"/></a>
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href=""></a></li>
+                    <li class="uk-parent"><a href=""></a></li>
+                    <li><a href=""></a></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active">
+                        <a>
+                            <button class="uk-button uk-button-primary"><%=user.name%></button>
+                            <ul data-uk-dropdown class="uk-nav uk-nav-dropdown">
+                                <li><a href="/student/edit-profile">Editar perfil</a></li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="uk-active"><a href="/logout"><button class="uk-button uk-button-primary">CERRAR SESIÓN</button></a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container essay">
+            <%if(user.status=="saved" || user.status=="registered"){%>
+            <%}else{%>
+                <% if(user.finalist){ %>
+                    <h2 style="line-height: 1.6em;">¡Felicidades eres uno de los finalistas de Leescúbrelo! <br />Próximamente se publicará en nuestras redes sociales el lugar en donde se llevará a cabo la premiación</h3>                    
+                <%}else {%>
+                    <h2 style="line-height: 1.6em;">¡Gracias por participar en Leescúbrelo! <br />Próximamente se anunciaran a los ganadores</h3>
+                <%}%>
+            <%}%>
+            <div class="main-container">
+                <!-- <h1>Título del ensayo</h1> -->
+                <%if(user.status=="saved" || user.status=="registered"){%>
+                    <form id="essay-form" action="/student/update-essay" method="POST">
+                        <div class="essay-title uk-text-left">
+                            <input type="text" name="title" placeholder="Título del ensayo" class="uk-input essay-title-input purple" value="<%=user.title%>" id="title" required>
+                        </div>
+                        <div class="essay-write-section">
+                        <textarea class="uk-input" id="essay" name="essay" required><%=user.essay%></textarea>
+                        <p>Palabras <span class="words-count">0</span>/<%=wordsconvocatoria%></p>
+                        <button class="uk-button uk-button-primary save-essay-button blue-bg" type="submit">GUARDAR</button>
+                        </div>
+                    </form>
+
+                <%}else{%>
+                       <div class="essay-title uk-text-left">
+                           <input type="text" class="uk-input essay-title-input purple" value="<%=user.title%>" id="title" readonly>
+                       </div>
+                       <div class="essay-write-section">
+                       <textarea class="uk-input" id="essay" readonly><%=user.essay%></textarea>
+                       <p>Palabras <span class="words-count">0</span>/<%=wordsconvocatoria%></p>
+                       <button class="uk-button uk-button-primary save-essay-button blue-bg" style="color:white" type="submit" disabled>Presentada</button>
+                       </div>
+                <%}%>
+                
+            </div><div class="right-section statuses">
+                <h5 class="purple">Estatus</h5>
+                <p class="purple">Guardado</p>
+                <div class="status-bar  
+                <%if(user.status == "saved" || user.status == "sent" || user.status == "approved" || user.status == "evaluation" || user.status == "evaluated" || user.status == "paid" ){%>
+                    active
+                <%}%>
+                ">
+                </div>
+                <p class="purple">Enviado</p>
+                <div class="status-bar sent 
+                <%if(user.status == "sent" || user.status == "approved" || user.status == "evaluation" || user.status == "evaluated" || user.status == "paid"){%>
+                    active
+                <%}%>
+                ">
+                </div>
+                <p class="purple">En revisión</p>
+                <div class="status-bar 
+                <%if(user.status == "approved" || user.status == "evaluation" || user.status == "evaluated" || user.status == "paid"){%>
+                    active
+                <%}%>
+                ">
+                </div>
+                <p class="purple">Calificado</p>
+                <div class="status-bar 
+                <%if(user.status == "evaluated"){%>
+                    active
+                <%}%>
+                ">
+                </div>
+
+                <h5 class="purple">Reglamentos y bases</h5>
+                <div>
+                        <%students.forEach(function(student){   
+                                    if (student.email==user.email) {                                    
+                            %>
+                                     <%=student.name%> - <%=student.concursoCode%>
+                                     
+                                    <%concursos.forEach(function(concurso){
+                                        if (student.concursoCode==concurso.code){
+                                    %>
+                                        <p><%=concurso.name%>   reglas: <%=concurso.textoregla%></p>
+                                    <%
+                                        }
+                                    })%>                                     
+                            <%
+                                    }
+                        })%>
+                        -----------------------
+
+                </div>                
+                <p>
+                    A través de la lectura de <b>“Simbad el Marino”</b> realizar un ensayo original e inédito:<br />
+                    Primero de secundaria   -    “Valentía y perseverancia”  <br />       
+                    Segundo de secundaria   -    “El buen líder”    <br />
+                    Tercero de secundaria   -    “Riqueza y generosidad”<br />
+                </p>
+                <p><b>Los ensayos deberán ser originales e inéditos.</b></p>
+                <p>Los ensayos deberán realizarse en idioma español, debiendo tener una extensión de:</p>
+                <p>
+                    Primero de secundaria    -   600 palabras   <br />    
+                    Segundo de secundaria  -   800 palabras     <br />  
+                    Tercero de secundaria    -   1000 palabras  <br />
+                </p>
+                <p>Nota: La extensión no incluye nombre, título o subtítulos.</p>
+                <p>Los ensayos deberán redactarse en tercera persona, considerando introducción, desarrollo y conclusiones, sin que sea necesario establecer el título para cada uno. Al final se deberá incluir la o las citas bibliográficas (tanto de la edición leída y como, en su caso, de la consultada), en consideración que la misma no será tomada en cuenta para el número de palabras. </p>
+                <p>Criterios de descalificación:</p>
+                <ol>
+                    <li>No cumplan con la extensión señalada; se les brindará una tolerancia del 20% superior o inferior.</li>
+                    <li>Superre las faltas de ortografía señaladas en la convocatoria.:<br />
+                        Primero de secundaria: 48 palabras (8%)<br />
+                        Segundo de secundaria: 56 palabras (7%)<br />
+                        Tercero de secundaria: 60 palabras (6%)
+                    </li>
+                    <li>Se compruebe duplicidad o plagio, entendiéndose este último, si hay más de dos párrafos con copy-paste y/o más de uno igual a la de algún compañero. </li>
+                </ol>
+                <p>Fecha límite de entrega de ensayos: viernes <b>(día) de (mes) del 20-- a las 23:59 horas.</b></p>
+                <p>
+                Los resultados de los finalistas: viernes <b>(día) de (mes) del 20--.</b><br />
+                El Comité Técnico y Evaluador es el responsable del proceso de evaluación de los trabajos, por lo que su fallo y decisiones serán inapelables. . 
+                </p>
+                <p>Ceremonia de premiación: jueves <b>(día) de (mes) del 20--.</b></p>
+               <%if(user.status=="saved" || user.status=="registered"){%>
+                <button class="uk-button uk-button-primary big-button send-button">ENVIAR</button>
+               <%}else{%>
+                <button class="uk-button uk-button-primary big-button" disabled="" style="color:white">PRESENTADA</button>
+                <%}%>
+                
+            </div>
+        </div>
+    </div>
+    <% include includes/footer.ejs %>
+    <script type="text/javascript">
+        var max = <%=maxWords%>;
+        var min = <%=minWords%>;
+        var changed = false;
+        $("#essay").on("keydown",function(e){
+            changed=true;
+            if($(this).val().match(/\S+/g)){
+                if (event.keyCode != 8 && event.keyCode != 46 && $(this).val().match(/\S+/g).length >= max) {
+                        event.preventDefault();
+                    }
+            }
+            
+        }).on( "keyup", function(e){
+            var self = $(this);
+            
+            console.log(max);
+            var words=0
+            if(self.val() !=""){
+                words = self.val().match(/\S+/g).length;
+            }
+            if (words > max) {
+                //console.log(self.val().substring(0,max));
+                e.preventDefault();
+              //self.val(self.val().substring(0, max));
+              words = self.val().match(/\S+/g).length;
+            }
+            $(".words-count").html(words);
+        }).on("paste",function(e){
+            console.log("Tochi: Paste - entre");
+            changed=true;
+            var self = $(this);
+            
+            console.log(max);
+            var words=0
+            
+            if(self.val() !=""){
+                words = self.val().match(/\S+/g).length;
+            }
+            console.log("Tochi: Paste - el words es:"+words);
+            console.log("Tochi: Paste - el max es:"+max);
+            if (words > max) {
+                 console.log("Tochi: Paste - el words es mayor que max");
+                //console.log(self.val().substring(0,max));
+                e.preventDefault();
+              //self.val(self.val().substring(0, max));
+              words = self.val().match(/\S+/g).length;
+              console.log("Tochi: Paste - el words es mayor que max, after"+max);
+            }
+            $(".words-count").html(words);
+
+            
+        }).on("focus",function(e){
+             console.log("Tochi: Focus - entre");
+            
+            var self = $(this);
+            
+            var words=0
+            
+            if(self.val() !=""){
+                words = self.val().match(/\S+/g).length;
+                console.log("Tochi: Focus - el words es:"+words);
+            }
+            $(".words-count").html(words);
+
+            console.log("Tochi: Focus - sali");
+        });
+        
+        
+        var self = $("#essay");
+        var words=0
+        console.log("Tochi antes entrar a validar si hay texto");
+        if( $("#essay").val() !=""){
+            console.log("Tochi: si hay texto");
+            words =  $("#essay").val().match(/\S+/g).length;
+            console.log("Tochi: si hay texto"+words);
+        }
+         console.log("Tochi: despues texto "+words);
+        if (words > max) {
+          //Tochi: Oct 5th, 2019: do not substring 0 to a number of chactteres
+          //self.val(self.val().substring(0, max));
+          //Tochi: end
+          validator.showErrors({
+                  "essay": "Max palabras "+max+" alcanzado, usted tiene: "+words
+          });          
+          //Tochi- do not set the words count here
+          //start:
+          //words = self.val().match(/\S+/g).length;
+          //Tochi: end
+        }
+        //Tochi- do not set the words count here
+        //sytart: 
+        //$(".words-count").html(words);
+        //Tochi:end
+        
+        var validator = $("#essay-form").validate();
+
+         $("#essay").focus();
+
+
+        $("#essay-form").submit(function(e){
+            var self = $(this);
+            
+            
+            var words=0
+            if($("#essay").val() !=""){
+                words = $("#essay").val().match(/\S+/g).length;
+            }
+            if($(".essay-title-input").val() ==""){
+                validator.showErrors({
+                  "title": "El título es requerido"
+                });
+                return false;
+            }
+            
+          if (words > max) {
+          
+               validator.showErrors({
+                  "essay": "Max palabras "+max+" alcanzado, usted tiene: "+words
+              });          
+              words = self.val().match(/\S+/g).length;
+              return false;
+           }
+        
+            /*if(words<min){
+                validator.showErrors({
+                  "essay": "Min words "+min+" required, current: "+words
+                });
+                return false;
+            }*/
+            
+            return true;
+        })
+
+        $(".send-button").click(function(){
+            console.log("Tochi: Guardar  entre ");
+            var self = $(this);
+            if(changed){
+                $.notify("Por favor guarde su ensayo, antes de enviarlo", {position:"top center", className:"error"});
+            }
+            else{
+                console.log("Tochi: Guardar - si habia cambio ");
+                if($("#essay").val() !=""){
+                    words = $("#essay").val().match(/\S+/g).length;
+                    if(words<min){
+                        console.log("Tochi: Guardar - si es minimo ");
+                        validator.showErrors({
+                          "essay": "Min palabras "+min+" requeridas, usted tiene: "+words
+                        });
+                        $("#essay").focus();
+                        return false;
+                    }else {//start else no min
+                        console.log("Tochi: Guardar - no es minimo ");
+                        if (words > max) {
+                           console.log("Tochi: Guardar - si es mayor al maximo ");
+                           validator.showErrors({
+                              "essay": "Max palabras "+max+" alcanzado, usted tiene: "+words
+                           });          
+                           words = self.val().match(/\S+/g).length;
+                           $("#essay").focus();
+                            return false;
+                        }
+                        else
+                        {
+                           console.log("Tochi: Guardar - no es mayor al maximo ");
+                           console.log("Tochi: Guardar - listo para Enviar ");
+                            $.ajax({
+                                url:"/student/send-essay",
+                                method:"POST",
+                                data:{
+
+                                },
+                                success:function(data){
+                                    console.log(data);
+                                    $.notify("Saved successfully", {position:"top center", className:"error"});
+                                    $("#essay").attr("readonly","readonly");
+                                    $("#title").attr("readonly","readonly");
+                                    $(".status-bar.sent").addClass("active");
+                                    self.attr("disabled",true);
+                                    self.html("Submitted");
+                                    $(".save-essay-button").attr("disabled",true);
+                                    $(".save-essay-button").html("Submitted");
+
+                                    document.location.href = '/checkout'
+
+                                },
+                                error: function(err){
+                                    $.notify("Problem saving right now, please try again later", {position:"top center", className:"error"});
+                                }
+                            })
+                        }
+                    
+                    
+                    }//end else no min
+                    console.log("Tochi: Guardar - terminamos ");
+                }//end else there is something in the val -textarea
+                console.log("Tochi: Guardar - salir ");
+            }
+        })
+
+        /*$("#essay-form").submit(function(e){
+            var self = $(this);
+            $.ajax({
+                url:"/student/update-essay",
+                method:"POST",
+                data:self.serialize(),
+                success:function(data){
+                    console.log(data);
+                },
+                error:function(err){
+                    console.log(err);
+                }
+            })
+        })*/
+    </script>
+</body>
+</html>

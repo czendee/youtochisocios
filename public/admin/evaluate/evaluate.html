@@ -1,0 +1,90 @@
+<div class="container evaluate">
+    <div class="uk-grid" uk-grid>
+        <div class="uk-width-2-3@s left-section">
+            <div class="uk-grid" uk-grid>
+                <div class="uk-width-2-3@s uk-text-left">
+                    <dl class="uk-description-list">
+                        <dt>Nombre</dt>
+                        <dd><b>{{evaluateController.student.name}} {{evaluateController.student.middlename}} {{evaluateController.student.lastname}}</b></dd>
+                        <dt>Correo electrónico</dt>
+                        <dd><b>{{evaluateController.student.email}}</b></dd>
+                    </dl>
+                </div>
+                <div class="uk-width-1-3@s  uk-text-left uk-text-right@s ">
+                    <dl class="uk-description-list">
+                        <dt>Escuela</dt>
+                        <dd><b>{{evaluateController.student.school}}</b></dd>
+                        <dt>Grado</dt>
+                        <dd><b>{{evaluateController.student.grade}}</b></dd>
+                    </dl>
+                </div>
+            </div>
+            <div class="uk-grid" uk-grid >
+                <div class="uk-width-1-2 uk-text-left">
+                    <div>
+                    {{evaluateController.student.status}}
+                    </div>
+                </div>
+                <div class="uk-width-1-2 uk-text-right">
+                    <div>
+                    {{evaluateController.getWordsLength(evaluateController.student.essay) || 0}} / 800
+                    </div>
+                </div>
+                <div class="uk-width-1-1">
+                    <h3 class="uk-text-left">{{evaluateController.student.title}}</h3>
+                </div>
+                <div class="uk-width-1-1" style="margin-top:5px;">
+                    <textarea readonly class="uk-input">{{evaluateController.student.essay}}</textarea>
+                </div>
+            </div>
+        </div>
+        <div class="uk-width-1-3@s right-section">
+            <div class="inner-section" style="height:100%;">
+                <div class="uk-width-1-1 uk-margin">
+                    <form class="uk-form" ng-submit=" evaluateController.evaluation.plagarism =='no' ? evaluateController.submitEvaluation(evaluateController.evaluation) : evaluateController.rejectEvaluation(evaluateController.evaluation) ">
+                        <button class="uk-button uk-button-primary" ng-click="evaluateController.goBack()" type="button"><i class="fa fa-arrow-left"></i> REGRESAR</button>
+                        <h5>Plagio</h5>
+                        <div class="uk-grid-small uk-child-width-auto uk-grid">
+                            <label><input class="uk-radio" type="radio" name="plagarism" ng-model="evaluateController.evaluation.plagarism" value="yes"> Si</label>
+                            <label><input class="uk-radio" type="radio" name="plagarism" ng-model="evaluateController.evaluation.plagarism" value="no" > No</label>
+                        </div>
+                        <h5>Ortografia</h5>
+                        <div class="uk-form-horizontal">
+                            <div class="uk-margin">
+                                <label class="uk-form-label" for="faltas">Faltas</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" id="faltas" type="text"  placeholder="0"  value="" ng-model="evaluateController.evaluation.fouls" required>
+                                </div>
+                            </div>
+                            <div class="uk-margin">
+                                <label class="uk-form-label" for="faltas">Puntos</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" id="faltas" type="text" placeholder="0"  value="{{37}}" ng-model="evaluateController.evaluation.spellingPoints" required>
+                                </div>
+                            </div>
+                        </div>
+                        <h5>Comentarios</h5>
+                        <ul>
+                            <li ng-repeat="comment in evaluateController.comments">
+                                {{comment.comment}}
+                            </li>
+                        </ul>
+                        <textarea class="uk-textarea" style="width:100%; " placeholder="Sus comentarios"  ng-model="evaluateController.evaluation.moderatorComments">
+                        </textarea>
+                        <div class="uk margin uk-text-center uk-grid" uk-grid style="margin-top: 20px;">
+                            <div class="uk-width-1-2 uk-text-left">
+                                <button class="uk-button uk-button-primary" type="button" ng-click="evaluateController.rejectEvaluation(evaluateController.evaluation)" style="background-color:red !important;">DESCALIFICAR</button>
+                            </div>
+                            <div class="uk-width-1-2 uk-text-right">
+                                <button class="uk-button uk-button-primary">GUARDAR</button>
+                            </div>
+                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</div>

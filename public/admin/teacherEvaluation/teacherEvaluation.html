@@ -1,0 +1,35 @@
+<div class="container" style="padding:30px">
+  <div class="uk-grid" uk-grid>
+    <div class="uk-width-1-1">
+      <table class="uk-table">
+        <thead>
+          <tr>
+            <th class="uk-table-expand">Nombre</th>
+            <th>Escuela</th>
+            <th>Grado</th>
+            <th>CURP</th>
+            <th>Correo electrónico</th>
+            <th>Evaluaciones</th>
+            <th>Estatus</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="student in teacherEvaluationController.students">
+            <td>{{student.name}} {{student.middlename}} {{student.lastname}}</td>
+            <td>{{student.school}}</td>
+            <td>{{student.grade}}</td>
+            <td>{{student.curp}}</td>
+            <td>{{student.email}}</td>
+            <td>{{teacherEvaluationController.getNoOfEvaluations(student);}}</td>
+            <td>{{student.status}}</td>
+            <td>
+              <a ui-sref="evaluateStudentByTeacherPage({studentId:student.id})">
+              <button class="uk-button uk-button-primary">Evaluate</button></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

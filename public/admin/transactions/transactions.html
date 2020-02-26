@@ -1,0 +1,45 @@
+<div class="container teachers" style="padding:30px">
+    <div class="uk-grid" uk-grid>
+        <div class="uk-width-1-1 uk-text-right">
+        </div>
+        
+        <div class="uk-width-1-1 uk-text-right">
+            Concursos:
+           <select  ng-model="transactionsController.searchcoupon.concursoCode">
+                 
+                 <option ng-repeat="transaction in transactionsController.transactions  | orderBy : 'concursoCode' "   ng-if="transaction.student.concursoCode != transactionsController.transactions[$index - 1].student.concursoCode"  value="{{transaction.student.concursoCode}}">{{transaction.student.concursoCode}}</option>
+             </select>
+            <!--   <button class="uk-button uk-button-primary"  ng-click=" " type="button">FILTRAR</button>   -->
+        </div> 
+
+        
+        <div class="uk-width-1-1">
+            <table class="uk-table">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>estudiante</th>
+                        <th>cantidad</th>
+                        <th>cupón</th>
+                        <th>descuento</th>
+                        <th>estado</th>
+                        <th>concurso</th>
+                        <th>tipo de transacción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="transaction in transactionsController.transactions"  ng-if ="transaction.student.concursoCode == transactionsController.searchcoupon.concursoCode">
+                        <td>{{transaction.transactionId}}</td>
+                        <td>{{transaction.student.name}}</td>
+                        <td>{{transaction.total}}</td>
+                        <td>{{transaction.student.couponCode}}</td>
+                        <td>{{transaction.student.coupon.percent}}%</td>
+                        <td>{{transaction.status}}</td>
+                        <td> {transaction.student.concursoCode}}   </td>
+                        <td>{{transaction.event}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,648 @@
+@font-face {
+    font-family: NexaBold;
+    src: url(/fonts/Nexa-Bold.otf);
+    font-weight: bold;
+
+}
+
+@font-face{
+    font-family: Roboto;
+    src:url(/fonts/Roboto-Regular.ttf);
+}
+
+@font-face{
+    font-family: Roboto;
+    src:url(/fonts/Roboto-Bold.ttf);
+    font-weight: bold;
+}
+
+@font-face{
+    font-family: Roboto;
+    src:url(/fonts/Roboto-Light.ttf);
+    font-weight: lighter;
+}
+
+
+@font-face {
+    font-family: PriorSan;
+    src: url(PriorSanBol.ttf);
+    font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6, html{
+    font-family: Roboto;
+    color:black;
+}
+
+h1, h2, h3, h4{
+    font-family: NexaBold;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+
+.main{
+    width:100%;
+}
+
+nav{
+    background: transparent;
+    padding:20px;
+}
+
+.uk-logo img{
+    width:200px;
+}
+
+.login-section{
+    padding:10px;
+    width:350px;
+    max-width: 100%;
+}
+
+.container.main-registration{
+    background:url(/images/bg1.png);
+    background-size: cover;
+    background-position: center center;
+    /*background-color: #D9572D;*/
+    padding:4%;
+    padding-bottom: 150px;
+}
+
+.container.edit-profile{
+    padding:4%;
+}
+
+
+.container.edit-profile input, .container.edit-profile select {
+    color:#864392 !important;
+    border-radius: 8px;
+    font-weight: bolder;
+}
+
+
+.login-section .header img{
+    width:20%;
+    float:right;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.login-section .header .heading{
+    margin:0px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    width:80%;
+    padding-top: 7px;
+}
+
+.login-section .header h1{
+    margin:0px;
+    font-weight: bold;
+    font-size: 47px;
+    color:white;
+}
+
+.login-section .header img{
+    padding:10px;
+}
+
+.login-section .header{    
+    width:100%;
+    background-color: transparent;
+    margin-bottom: 15px;
+}
+
+.clearboth{
+    clear: both;
+}
+
+.login-section .grade-container, .login-section .grade-container label{
+    color:white;
+    font-size: 13px;
+}
+
+.login-section .grade-container .label{
+    padding-bottom:2px;
+    display: block;
+}
+
+.login-section .terms-and-conditions{
+    color:white;
+    width:100%;
+}
+
+.login-section-logo, .main-login-section{
+    display: inline-block;
+    vertical-align: middle;
+    width:330px;
+    max-width: 100%;
+}
+
+.login-section-logo{
+    padding-left: 20px;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+.login-section-logo img{
+    max-width: 100%;
+}
+
+.register-button-container{
+    width:100%;
+    text-align: right;
+    margin-top: 0px !important;
+
+}
+
+.register-button-container .register-button{
+    float:right;
+    background-color: #C43E1A;
+    //box-shadow: 0px 1px 12px 0px rgb(255, 255, 255);
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+#login{
+    text-align: center;
+}
+
+
+/*.clouds-divider{
+    background:url(/images/cloudsdivider.png);
+    width:100%;
+    height:18vw;
+    margin-top: -50px;
+    background-position: center center;
+    background-size: cover;
+}*/
+
+.container.essay{
+    text-align: center;
+}
+.container.essay .essay-write-section{
+    text-align: center;
+}
+
+.container.essay .essay-write-section button{
+    margin-top: 20px;
+}
+
+.container.rules{
+    padding:10%;
+    /*background-image: url(/images/mountains.png);
+    background-size: cover;
+    background-position: center bottom;*/
+    padding-bottom: 30px;
+}
+
+.container.rules h1{
+    font-size: 38px;
+    text-align: center;
+}
+
+.container.rules ul{
+    column-count: 2;
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    padding-left: 0px;
+}
+
+.container.rules ul li{
+    display: inline-block;
+    vertical-align: top;
+    padding-bottom: 15px;
+}
+
+.container.rules ol li{
+    width:100%;
+    display: list-item;
+}
+
+.container.rules ul li h5{
+    font-weight: bolder;
+    margin-bottom:10px;
+    border-bottom: none;
+    color:#f18b2a;
+}
+
+.container.rules ul li p{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+.container.notice{
+    background:url('/images/bg3.png');
+    background-size: cover;
+    background-position: center center;
+    color:white;
+    padding:10%;
+    text-align: center;
+}
+
+.container.notice h1{
+    color:white;
+}
+
+.container.notice p{
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    text-align: left;
+}
+
+footer .contact-info .fa-stack-2x{
+    color: #D9572D;
+}
+
+footer .contact-info .fa-stack-1x{
+    color: #4D4D4D;
+}
+
+footer .contact-info ul{
+    margin:0px;
+    padding:0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: inline-block;
+}
+
+footer .contact-info ul li{
+    list-style: none;
+    text-align: left;
+}
+
+footer{
+    background-color: #4D4D4D;
+    color:white;
+}
+
+footer{
+    font-size: 12px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+footer .footer-logo-container{
+    width:35%;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+}
+
+footer .footer-logo-container img{
+    width:100%;
+    max-width: 200px;
+    display: inline-block;
+
+}
+
+footer .contact-info{
+    display: inline-block;
+    vertical-align: middle;
+    width: 65%;
+    text-align: center;
+}
+
+.footer2 .left-content,
+.footer2 .right-content{
+    display: inline-block;
+    width:50%;
+    vertical-align: top;
+    text-align: center;
+}
+
+.footer2{
+    background-color: #333333;
+    color:white;
+    font-size: 12px;
+    padding:10px;
+}
+
+.footer2 .left-content img{
+    width:160px;
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 20px;
+    margin-top: -5px;
+}
+.footer2 .left-content p{
+    display: inline-block;
+    vertical-align: middle;
+    margin:0px;
+}
+
+.container.essay .main-container,
+.container.essay .right-section{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.container.essay .main-container{
+    width:65%;
+    padding:6%;
+}
+
+.container.essay .right-section{
+    width:35%;
+    padding:3%;
+    text-align: left;
+}
+
+.container.essay h1, h5{
+    border-bottom: 1px solid #999999;
+    text-align: left;
+    font-weight: bolder;
+}
+
+.container.essay textarea{
+    background-color: #F2F2F2;
+    height:500px;
+    border-radius: 5px;
+}
+
+.container.essay h5{
+    font-size: 22px;
+}
+
+.container.essay .big-button{
+    width:100%;
+    height:80px;
+    font-size: 23px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.input-containers div{
+    margin-bottom: 15px;
+}
+
+textarea:focus{
+    border-color: #46BDC1 !important;
+}
+
+.container.basic{
+    padding:4%;
+}
+
+.container.admin i{
+    color:#46BDC1;
+    font-size: 100px; 
+}
+
+nav.subnav{
+    background-color: white;
+}
+
+.main.admin .userdata table{
+    text-align: left;
+    width:100%;
+
+}
+
+.main.admin .userdata table td, .main.admin .userdata table th{
+    padding:10px;
+}
+
+.main.admin .userdata table tr td:last-child{
+    width:300px;
+}
+
+.fancy-header{
+    background-color: #F2F2F2;
+    padding-top: 10px;
+    padding-bottom: 2px;
+}
+
+.fancy-header:before{
+    content:"";
+    width:10px;
+    height:62px;
+    margin-right: 10px;
+    background-color: #C43E1A ;
+    display: inline-block;
+    margin-bottom: -17px;
+    margin-top: -10px;
+}
+
+.fancy-header i{
+    float:right;
+    margin-right: 20px;
+    color:#C43E1A;
+}
+
+.container.evaluate .left-section{ 
+    padding:4%;
+    padding-right: 0px;
+    padding-left: 75px;
+    padding-top: 20px;
+}
+
+.container.evaluate textarea{
+    background-color: #F2F2F2;
+    min-height:300px;
+    border-radius: 5px;
+}
+
+.container.evaluate .right-section .inner-section{
+    box-shadow: -1px 10px 9px 3px rgba(0, 0, 0, 0.17);
+    padding:4%;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+.essay-title-input{
+    font-size: 40px !important;
+    padding:10px;
+    height: initial;
+    border:none;
+    font-weight: bolder;
+    font-family: NexaBold;
+    padding-left: 0px;
+    border-bottom: 1px solid #999999;
+    margin-bottom: 20px;
+    padding-bottom: 0px;
+    line-height: 1.2em;
+    color: black !important;
+    text-transform: capitalize;
+}
+
+.essay-write-section #essay-error{
+    font-weight: bold;
+    color: red;
+}
+
+.status-bar{
+    display: block;
+    width:100%;
+    height:22px;
+    border-radius: 20px;
+    background-color: #E6E6E6;
+}
+
+.status-bar.active{
+    background-color: #864392;
+}
+
+.right-section.statuses p{
+    margin-bottom: 2px !important;
+}
+
+p.no-margin{
+    margin:0px;
+}
+
+.admin .uk-card{
+    cursor: pointer;
+}
+
+.heading-container h1{
+    margin-bottom: 0px;
+    line-height: 1em;
+}
+
+.heading-container{
+    padding:25px 50px;
+    background-color: white;
+}
+
+.custom-border{
+    background-color: #864392;
+    width:20%;
+    height:30px;
+    position: absolute;
+    left:-5px;
+    top:-5px;
+    z-index: -1;
+}
+
+.custom-border.bottom{
+    right:-5px;
+    bottom:-5px;
+    left:initial;
+    top:initial;
+}
+
+.relative{
+    position: relative;
+}
+
+.inline-block{
+    display: inline-block;
+}
+
+.two-column-container{
+    column-count: 2;
+}
+
+
+.download-buttons{
+    width:100%;
+    text-align: center;
+    margin-top: -100px;
+}
+
+.download-buttons button{
+    width: 300px;
+    line-height: 1.5em;
+    font-size: 12px;
+    text-align: center;
+    margin:5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    max-width: 100%;
+}
+
+.main-login-container form{
+    display: inline-block;
+    width:300px;
+}
+
+.main-login-container{
+    padding-top: 20px;
+    min-height: calc(100vh - 288px);
+}
+
+@media only screen and (max-width: 700px) {
+    .two-column-container{
+        column-count: 1 !important;
+    }
+
+    .download-buttons{
+        margin-top: 0px;
+    }
+}
+
+footer .fa-stack-1x {
+    color: #864392;
+}
+
+footer ul{
+    list-style: none;
+    margin-bottom: 0px;
+    padding-left: 0px;
+}
+
+footer{
+    background-color: #864392;
+    padding-left:10%;
+    padding-right:10%;
+}
+
+.error{
+    font-size: 13px;
+    font-weight: bolder;
+}
+.red{
+    color:red;
+}
+
+
+.icon-container{
+    background-color: #f18b2a;
+    width:80px;
+    height:40px;
+    padding:5px;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.icon-container img{
+    display: inline-block;
+    height:100%;
+}
+
+.max-width-100{
+    max-width: 100%;
+}
+
+.checkout-page-details-container{
+    max-width:600px;
+    display: inline-block;
+}
+
+.coupon-container{
+    display: inline-block !important;
+}
+
+.card-container{
+    cursor: pointer;
+}
+
+.card-container h3{
+    margin-bottom: 4px;
+}
+
+.card-container h1{
+    margin-bottom: 0px;
+    font-size: 20px;
+    margin:0px;
+}

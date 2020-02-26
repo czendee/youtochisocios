@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Leescúbrelo | Essay Writing Competition</title>
+    <%include includes/header.ejs%>
+</head>
+<body>
+    <div class="main">
+        <div class="container main-registration">
+            <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar style="padding:0px;">
+                <div class="uk-navbar-left">
+                    <a class="uk-navbar-item uk-logo" href="/"><img src="/images/logo2.png"/></a>
+                    <ul class="uk-navbar-nav">
+                        <li class="uk-active"><a href=""></a></li>
+                        <li class="uk-parent"><a href=""></a></li>
+                        <li><a href=""></a></li>
+                    </ul>
+                </div>
+                <div class="uk-navbar-right">
+                    <ul class="uk-navbar-nav">
+                        <li class="uk-active"><a href="/login"><button class="uk-button uk-button-primary">INICIAR SESION</button></a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="main-login-section">
+                <div class="login-section">
+                    <div class="header">
+                        <div class="heading">
+                            <h1>Participa</h1>
+                        </div>
+                        <img src="/images/participares.png">
+                        <div class="clearboth"></div>
+                    </div>
+                    <div class="main-register-section">
+                        <form id="registrationForm" action="/student/register" method="POST" class="">
+                            <div class="uk-fieldset uk-grid-small" uk-grid>     
+                                <div class="uk-width-1-2@s input-containers">
+                                    <div>
+                                        <input class="uk-input" type="text" placeholder="Nombre" name="name" required>
+                                    </div>
+                                    <div >
+                                        <input class="uk-input" type="text" placeholder="Apellido paterno" name="middleName" required>
+                                    </div>
+                                    <div>
+                                        <input class="uk-input" type="text" placeholder="Apellido materno" name="lastName" required>
+                                    </div>
+                                    <div class="school-container">
+                                        <select class="uk-select school" name="school" required>
+                                            <option disabled selected name="school">Escuela</option>
+                                            <%schools.forEach(function(school){%>
+                                                <option value="<%=school.name%>"><%=school.name%></option>
+                                            <%})%>
+                                            <option value="other">Otra</option>
+                                            //TODO on other add an input field
+                                        </select>
+                                        
+                                    </div>
+                                    <div class="grade-container">
+                                        <label class="uk-form-label label" for="form-stacked-text">Grado</label>
+                                        <div class="uk-form-controls ">
+                                            <label><input class="uk-radio" type="radio" name="grade" value="1" checked> 1ro</label>
+                                            <label><input class="uk-radio" type="radio" name="grade" value="2"> 2do</label>
+                                            <label><input class="uk-radio" type="radio" name="grade" value="3"> 3er</label>
+                                        </div>
+                                    </div>
+                                </div>    
+                                <div class="uk-width-1-2@s input-containers">
+                                    <div>
+                                        <input class="uk-input" type="text" placeholder="Entidad" name="entity" required>
+                                    </div>
+                                    
+                                    <div>
+                                        <input class="uk-input" type="text" placeholder="CURP" name="curp" required>
+                                    </div>
+                                    
+                                    <div>
+                                        <input class="uk-input" type="email" placeholder="Correo electrónico" name="email" required>
+                                    </div>
+                                    
+                                    <div>
+                                        <input class="uk-input" type="password" placeholder="Contraseña" name="password" required>
+                                    </div>
+                                    
+                                    <div>
+                                        <input class="uk-input" type="password" placeholder="Repetir contraseña" name="repeatPassword" required>
+                                    </div>
+                                    <div>
+                                        <input class="uk-input" type="text" placeholder="Cupón" name="coupon">
+                                    </div>
+                                    
+                                    </div>
+                                        <select class="uk-select concurso" name="concurso" required>
+                                            <option disabled selected name="concurso">Concurso</option>
+                                            <%concursos.forEach(function(concurso){%>
+                                                <option value="<%=concurso.code%>"><%=concurso.name%></option>
+                                            <%})%>
+                                           <!-- <option value="other">Otra</option> -->
+                                            //TODO on other add an input field
+                                        </select>
+                                        
+                                    </div>
+                                <div class="uk-margin terms-and-conditions" style="margin-top: 20px !important">
+                                    <label><input class="uk-checkbox" type="checkbox" required> He leído y acepto los terminos y condiciones</label>
+                                </div>
+                                <div class="uk-margin terms-and-conditions">
+                                    <label><input class="uk-checkbox" type="checkbox" required> He leído y acepto el aviso de privacidad</label>
+                                </div>
+                                <div class="register-button-container">
+                                    <button type="input" class="uk-button uk-button-primary register-button purple-bg">REGISTRAR</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div><div 
+            class="login-section-logo">
+                <!--<img src="/images/image.png">-->
+            </div>
+        </div>
+        <div class="container rules">
+            <div class="uk-text-center">
+                <div class="relative inline-block max-width-100">
+                    <div class="custom-border max-width-100"></div>
+                    <div class="heading-container inline-block max-width-100">
+                        <h1 class="inline-block purple max-width-100">BASES DEL CONCURSO</h1>
+                    </div>
+                    <div class="custom-border bottom"></div>
+                </div>
+            </div>
+            
+            <ul class="two-column-container">
+                <li>
+                    <h5>PRIMERA</h5>
+                    <p>Concursantes</p>
+                    <p>Podrán participar los alumnos de las escuelas Secundarias Generales, Secundarias Técnicas y Telesecundarias de la República Mexicana, que tengan hasta 17 años cumplidos al día de la premiación.</p>
+                    <p>En caso de resultar finalistas, en la ceremonia de premiación deberán presentar el documento (credencial escolar, oficio de su escuela, etc.) que compruebe su inscripción al grado escolar que señaló en su registro.</p>
+                    <p>Los concursantes no podrán tener ningún nexo con los organizadores del evento ni de los miembros del Comité Técnico y Evaluador.</p>
+                </li><li>
+                    <h5>SEGUNDA</h5>
+                    <p>Lectura y temas</p>
+                    <p>Los concursantes deberán realizar la lectura “Simbad el Marino”, Autor Anónimo.</p>
+                    <p>A través de la lectura de <b>“Simbad el Marino”</b> realizar un ensayo debiendo desarrollar los siguientes temas:</p>
+                    <p>Primero de secundaria - “Valentía y perseverancia"</p>
+                    <p>Segundo de secundaria - “El buen líder”</p>
+                    <p>Tercero de secundaria - “Riqueza y generosidad”</p>
+                </li><li>
+                    <h5>TERCERA</h5>
+                    <p>Premios</p>
+                    <p>Los veinte finalistas por cada grado escolar serán acreedores a un diploma, mientras que los tres primeros lugares, por cada grado escolar, recibirán los siguientes premios:</p>
+                    <p>1er lugar: Laptop.</p>
+                    <p>2º lugar: Tablet.</p>
+                    <p>3er lugar: Audífonos.</p>
+                </li><li>
+                    <h5>CUARTA</h5>
+                    <p>Inscripción y material de apoyo</p>
+                    <p>La inscripción al concurso se realizará a través del portal de internet www.leescubrelo.org.</p>
+                    <p>El alumno deberá ingresar en la sección “inscripciones” y llenar el formulario con los siguientes datos: nombre del alumno, nombre de la escuela, grado, correo electrónico, CURP, teléfono y nombre de contacto. Lo anterior le permitirá generar un usuario y contraseña.</p>
+                    <p>El periodo de inscripciones se llevará a cabo del día 9 de octubre al 20 de octubre del 2017.</p>
+                    <p>En la página www.leescubrelo.org se encontrará material de apoyo para elaborar su ensayo.</p>
+                </li>
+                <li>
+                    <h5>QUINTA</h5>
+                    <p>Ensayo</p>
+                    <p>Los ensayos deberán realizarse en idioma español, debiendo tener una extensión de:</p>
+                    <p>Primero de secundaria 720 palabras</p>
+                    <p>Segundo de secundaria 960 palabras</p>
+                    <p>Tercero de secundaria 1200 palabras</p>
+                    <p>Nota: La extensión no incluye nombre, título o subtítulos.</p>
+                    <p>Realizarse en tercera persona, considerando introducción, desarrollo y conclusiones, sin que sea necesario establecer el título para cada uno.</p>
+                    <p>Al final se deberá incluir la o las citas bibliográficas (tanto de la edición leída y como, en su caso, de la consultada), en consideración que la misma no serán tomada en cuenta para el número de palabras.</p>
+                    <p><b>Los ensayos deberán ser originales e inéditos.</b></p>
+                </li>
+                <li>
+                    
+                    <p>Los criterios de descalificación serán los siguientes:</p>
+                    <ol>
+                        <li>No cumplan con la extensión señalada en las bases del presente concurso; se les brindará una tolerancia del 20% superior o inferior.</li>
+                        <li>Tengan faltas de ortografía superiores a:
+                            <p>Primero de secundaria: 48 palabras (8%)</p>
+                            <p>Segundo de secundaria: 56 palabras (7%)</p>
+                            <p>Tercero de secundaria: 60 palabras (6%)</p>
+                        </li>
+                        <li>Se compruebe duplicidad o plagio, entendiéndose este último, si hay más de dos párrafos con copy-paste y/o más de uno igual a la de algún compañero. </li>
+                    </ol>
+                </li>
+                <li>
+                    <h5>SEXTA</h5>
+                    <p>Recepción de los trabajos</p>
+                    <p>El alumno deberá ingresar su usuario y contraseña dentro de la página www.leescubrelo.org, para tener acceso a la captura de su ensayo dentro de la plataforma. La fecha máxima para la entrega de ensayos será el viernes 24 de noviembre del 2017 a las 23:59.</p>
+                </li><li>
+                    <h5>SÉPTIMA</h5>
+                    <p>Comité Técnico y Evaluador</p>
+                    <p>El Comité Evaluador se integrará por personas imparciales y comprometidas con los objetivos del concurso, siendo el responsable del proceso de evaluación de los trabajos; su decisión será inapelable.</p>
+                </li><li>
+                    <h5>OCTAVA</h5>
+                    <p>Evaluación de los trabajos</p>
+                    <p>La evaluación de los trabajos se realizará de acuerdo a las rúbricas anexas a esta convocatoria, tomando en cuenta los siguientes conceptos: comprensión 25%, desarrollo 50% y redacción 25%.</p>
+                    <p>El proceso de evaluación se llevará a cabo de la siguiente manera:</p>
+                    <p>
+                        <ol>
+                            <li>Primera fase: En una primera revisión, se descalificará por duplicidad, plagio, por no cumplir con la extensión de palabras o por rebasar el porcentaje permitido de faltas de ortografía..</li>
+                            <li>Segunda fase: Cada ensayo se revisará por dos miembros del Comité Evaluador, con base a la calificación promediada que se obtenga, se determinarán los 20 finalistas por cada grado escolar. Para ser considerados finalistas se requerirá que los trabajos tengan una calificación mínima de 80.</li>
+                            <li>
+                                <p>Tercera fase: Cada uno de los 20 finalistas será calificado por un tercer evaluador; dicho puntaje se ponderará con las calificaciones asignadas en las fases previas, determinándose los tres ganadores por cada grado.</p>
+                                <p>De cada etapa se levantarán actas para dejar constancia. Si hubiera un empate, el Comité Técnico determinará al ganador.</p>
+                                <p>El fallo y las decisiones del Comité Técnico y Evaluador serán inapelables. Los resultados de los finalistas se darán a conocer a través de la plataforma el día 1º de diciembre del 2017.</p>
+                            </li>
+                        </ol>
+                    </p>
+                </li><li>
+                    <h5>NOVENA</h5>
+                    <p>Ceremonia de premiación</p>
+                    <p>Los diplomas y premios se entregarán en un evento público que se celebrará el día jueves 07 de diciembre del 2017.</p>
+                    <p>La sede del evento será publicada y comunicada a los finalistas. El día de la premiación se darán a conocer los resultados de este concurso.</p>
+                </li><li>
+                    <h5>DÉCIMA</h5>
+                    <p>De lo no previsto</p>
+                    <p>Los casos no previstos en la presente convocatoria serán resueltos por el Comité Técnico de “Leescúbrelo”</p>
+                </li>
+            </ul>
+            <div class="download-buttons">
+                <button class="uk-button uk-button-primary yellow-bg">Descargar<br /> bases del concurso</button>
+                <button class="uk-button uk-button-primary purple-bg">Descargar Manual<br /> para elaborar ensayo</button>
+               
+            </div>
+        </div>
+        
+        <div class="container notice">
+            <h1>AVISO DE PRIVACIDAD</h1>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+            <p>Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+        </div>
+        
+        
+        
+    </div>
+
+    <% include includes/footer.ejs %>
+
+
+    <!-- This is the modal -->
+    <div id="login" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <h2 class="uk-modal-title">INICIAR SESIÓN</h2>
+            <form id="loginForm" action="/student/login" method="POST" class="">
+                <div class="uk-fieldset uk-grid-small">                            
+                    
+                    <div class="uk-margin">
+                        <input class="uk-input" type="email" placeholder="Correo electrónico" name="email" required>
+                    </div>
+                    
+                    <div class="uk-margin">
+                        <input class="uk-input" type="password" placeholder="Contraseña" name="password" required>
+                    </div>
+                
+                </div>
+                <p class="uk-text-center">
+                    <button class="uk-button uk-button-default uk-modal-close" type="button">Cancelar</button>
+                    <button class="uk-button uk-button-primary" type="submit">Enviar</button>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $('.school').on('change', function() {
+          console.log( this.value );
+          if(this.value == "other"){
+            $(".school-container").append('<input class="uk-input custom-school" type="text" placeholder="School Name" name="customSchool" required>')
+          }
+          else
+          {
+            $(".custom-school").remove();
+          }
+        })
+        var message = "<%=message%>";
+        console.log("workign in here");
+        console.log(message);
+        if(message){
+            $.notify(message, {position:"top center", className:"error"});
+        }
+    </script>
+</body>
+</html>

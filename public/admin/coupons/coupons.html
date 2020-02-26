@@ -1,0 +1,108 @@
+<div class="container teachers" style="padding:30px">
+    <div class="uk-grid" uk-grid>
+        <div class="uk-width-1-1 uk-text-right">
+            <button class="uk-button uk-button-primary" uk-toggle="target: #addCoupon" ng-click="couponsController.newcoupon.code='';couponsController.newcoupon.count=''; couponsController.newcoupon.percent ='';couponsController.newcoupon.details =''   ;  alert('hola'); couponsController.traeListaConcurso(); alert('hola 2'); " type="button">+ AGREGAR CUPÓN</button>
+        </div>
+        
+        <div class="uk-width-1-1 uk-text-right"  >
+            Concursos:
+            <select  ng-model="couponsController.searchcoupon.concursoCode">
+                 <option ng-repeat="coupon in couponsController.coupons  | orderBy : 'concursoCode' "   ng-if="coupon.concursoCode!= couponsController.coupons[$index - 1].concursoCode"  value="{{coupon.concursoCode}}">{{coupon.concursoCode}}</option>
+             </select>
+
+        </div>        
+                                                    
+        <div class="uk-width-1-1">
+            <table class="uk-table">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>código</th>
+                        <th>Cantidad</th>
+                        <th>Porcentaje</th>
+                        <th>Grado</th>
+                        <th>Concurso</th>
+                        <th>Detalles</th>
+                        <th>Acciones</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="coupon in couponsController.coupons" ng-show=" coupon.concursoCode == couponsController.searchcoupon.concursoCode  " >
+                        <td >{{coupon.id}}</td>
+                        <td>{{coupon.code}}</td>
+                        <td>{{coupon.count}}</td>
+                        <td  ng-show=" coupon.concursoCode == couponsController.searchcoupon.concursoCode  ">{{coupon.percent}}</td>
+                        <td>{{coupon.grade}}</td>
+                        <td>{{coupon.concursoCode}} </td>
+                        <td>{{coupon.details}}</td>
+                        <td><button class="uk-button uk-button-warning" uk-toggle="target: #editCoupon" ng-click="couponsController.editCoupon(coupon);" style="margin-right: 5px;">Edit</button><button class="uk-button uk-button-danger" ng-click="couponsController.deleteCoupon(coupon, $index)">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="addCoupon" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title">Agregar cupón</h2>
+        <div class="uk-width-1-1 uk-text-center">
+            <form class="uk-form" actions="/admin/coupon/create" method="POST" ng-submit="couponsController.addCoupon()">
+                
+                <div><input type="text" name="code" placeholder="Coupon Code" class="uk-input" ng-model="couponsController.newcoupon.code" ng-init="couponsController.newcoupon.code=''" required></div>
+                <div><input type="text" name="count" placeholder="Quantity" class="uk-input" ng-model="couponsController.newcoupon.count" ng-init="couponsController.newcoupon.count='' " required></div>
+                <div><input type="text" name="percent" placeholder="Percent" class="uk-input" ng-model="couponsController.newcoupon.percent" ng-init="couponsController.newcoupon.percent='' " required></div>
+                <div><input type="text" name="details" placeholder="Details" class="uk-input" ng-model="couponsController.newcoupon.details" ng-init="couponsController.newcoupon.details='' " required></div>
+                <div>
+                    <select class="uk-input" name="grade" ng-model="couponsController.newcoupon.grade" required>
+                        <option value="1">Grado 1</option>
+                        <option value="2">Grado 2</option>
+                        <option value="3">Grado 3</option>
+                    </select>
+                </div>
+                
+                <div>
+                        <select  name="concursoCode" ng-model="couponsController.newcoupon.concursoCode">                 
+                                 <option ng-repeat="concurso in couponsController.concursos  "  value="{{concurso.code}}">{{concurso.name}}</option>                                  
+                        </select>
+                 </div>
+                <div class="uk-margin">
+                    <button class="uk-modal-close uk-button" type="button">Cancel</button>
+                    <button class="uk-button uk-button-primary">
+                        Add
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div id="editCoupon" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title">Editar cupón</h2>
+        <div class="uk-width-1-1 uk-text-center">
+            <form class="uk-form" actions="/admin/coupon/create" method="POST" ng-submit="couponsController.saveEditCoupon()">
+                <div><input type="text" name="code" placeholder="Coupon Code" class="uk-input"  ng-disabled="true===true" ng-model="couponsController.editcoupon.code" required></div>
+                <div><input type="text" name="count" placeholder="Quantity" class="uk-input" ng-model="couponsController.editcoupon.count" required></div>
+                <div><input type="text" name="percent" placeholder="Percent" class="uk-input" ng-model="couponsController.editcoupon.percent" required></div>
+                <div><input type="text" name="details" placeholder="Details" class="uk-input" ng-model="couponsController.editcoupon.details" required></div>
+                <div>
+                    <select class="uk-input" name="grade" ng-model="couponsController.editcoupon.grade" required>
+                        <option value="1">Grado 1</option>
+                        <option value="2">Grado 2</option>
+                        <option value="3">Grado 3</option>
+                    </select>
+                </div>
+                <div><input type="text" name="concursoCode" placeholder="Concurso Code" class="uk-input" ng-model="couponsController.editcoupon.concursoCode" required></div>
+                <div class="uk-margin">
+                    <button class="uk-modal-close uk-button" type="button">Cancel</button>
+                    <button class="uk-button uk-button-primary">
+                        Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

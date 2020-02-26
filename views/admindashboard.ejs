@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leescúbrelo | Essay Writing Competition</title>
+    <base href="/admin/dashboard/">
+    <link rel="stylesheet" type="text/css" href="/uikit/css/uikit.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/muikit.css">
+    <link rel="stylesheet" type="text/css" href="/font-awesome/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="/bower_components/angularjs-slider/dist/rzslider.css"/>
+    <link rel="stylesheet" href="/bower_components/ngToast/dist/ngToast.min.css">
+    <link rel="stylesheet" type="text/css" href="/bower_components/angular-notify/dist/angular-notify.min.css">
+</head>
+<body>
+    <div ng-app="admin" class="main admin">
+        
+        <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+            <div class="uk-navbar-left">
+                <a class="uk-navbar-item uk-logo" href="/admin/dashboard/"><img src="/images/logo3.png"/></a>
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href=""></a></li>
+                    <li class="uk-parent"><a href=""></a></li>
+                    <li><a href=""></a></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href="#"><button class="uk-button uk-button-primary"><%=user.name%></button></a></li>
+                    <li class="uk-active"><a href="/logout"><button class="uk-button uk-button-primary">Cerrar sesión</button></a></li>
+                </ul>
+            </div>
+        </nav>
+        <navbar></navbar>
+        <div class="angular-container">
+            <div ui-view="">
+                <div class="loader uk-text-center" style="min-height: 55vh; padding-top: 60px;">
+                    <img src="/images/loader.gif">
+                </div>
+            </div>
+        </div>        
+
+    </div>
+
+    <% include includes/footer.ejs %>
+
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="/bower_components/angular-cookies/angular-cookies.min.js"></script>
+    <script src="/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="/bower_components/angularUtils-pagination/dirPagination.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/bower_components/ngToast/dist/ngToast.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-notify/dist/angular-notify.min.js"></script>
+
+    <script type="text/javascript" src="/admin/admin.js"></script>
+
+    <script type="text/javascript" src="/admin/services/students.js"></script>
+    <script type="text/javascript" src="/admin/services/admin.js"></script>
+    <script type="text/javascript" src="/admin/services/coupon.js"></script>
+    <script type="text/javascript" src="/admin/services/transactions.js"></script>
+    <script type="text/javascript" src="/admin/services/school.js"></script>
+    <script type="text/javascript" src="/admin/services/concurso.js"></script>
+
+    <script type="text/javascript" src="/admin/directives/navbar/navbar.js"></script>
+
+    <script type="text/javascript" src="/admin/dashboard/dashboard.js"></script>
+    <script type="text/javascript" src="/admin/evaluate/evaluate.js"></script>
+    <script type="text/javascript" src="/admin/users/users.js"></script>
+    <script type="text/javascript" src="/admin/teachers/teachers.js"></script>
+    <script type="text/javascript" src="/admin/teacherEvaluation/teacherEvaluation.js"></script>
+    <script type="text/javascript" src="/admin/evaluateStudentByTeacherPage/evaluateStudentByTeacherPage.js"></script>
+    <script type="text/javascript" src="/admin/coupons/coupons.js"></script>
+    <script type="text/javascript" src="/admin/transactions/transactions.js"></script>
+    <script type="text/javascript" src="/admin/schools/schools.js"></script>
+    <script type="text/javascript" src="/admin/concursos/concursos.js"></script>
+    <script type="text/javascript" src="/admin/finalists/finalists.js"></script>
+    <script type="text/javascript" src="/admin/finalEvaluate/finalEvaluate.js"></script>
+
+
+</body>
+</html>

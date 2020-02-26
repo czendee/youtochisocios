@@ -1,0 +1,40 @@
+<div class="container teachers" style="padding:30px">
+    <div class="uk-grid" uk-grid>
+        <div class="uk-width-1-1 uk-text-right">
+            <button class="uk-button uk-button-primary" uk-toggle="target: #addSchool"ng-click="schoolsController.newschool.name=''" type="button">+ AGREGAR ESCUELA</button>
+        </div>
+        <div class="uk-width-1-1">
+            <table class="uk-table">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Nombre</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="school in schoolsController.schools">
+                        <td>{{school.id}}</td>
+                        <td>{{school.name}} {{teacher.lastName}}</td>
+                        <td><button class="uk-button uk-button-danger" ng-click="schoolsController.deleteSchool(school, $index)">eliminar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<div id="addSchool" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title">Agregar Escuela</h2>
+        <div class="uk-width-1-1 uk-text-center">
+            <form class="uk-form" actions="/admin/school/create" method="POST" ng-submit="schoolsController.addSchool()">
+                <div><input type="text" name="name" placeholder="Nombre Escuela" class="uk-input" ng-model="schoolsController.newschool.name" required></div>
+                <button class="uk-button uk-button-primary" style="margin-top: 20px;">
+                    Add
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

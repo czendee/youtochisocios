@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leescúbrelo | Essay Writing Competition</title>
+    <%include includes/header.ejs%>
+</head>
+<body>
+    <div class="main">
+        <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+            <div class="uk-navbar-left">
+                <a class="uk-navbar-item uk-logo" href="/"><img src="/images/logo3.png"/></a>
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href=""></a></li>
+                    <li class="uk-parent"><a href=""></a></li>
+                    <li><a href=""></a></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href="/"><button class="uk-button uk-button-primary">Revisa</button></a></li>
+                    <li class="uk-active"><a href="/logout"><button class="uk-button uk-button-primary">CERRAR SESIÓN</button></a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="main-login-container uk-text-center" uk-text-center>
+            <h1 class="purple">Continuar con la comprobación para completar su registro</h1>
+            <div class="checkout-page-details-container">
+                <div class="uk-fieldset uk-grid-small" uk-grid>     
+                    <div class="uk-width-1-2@s input-containers">
+                        <div class="uk-text-left">
+                            <label>Nombre</label>
+                            <input class="uk-input" type="text" readonly value="<%=user.name%>">
+                        </div>
+                        <div class="uk-text-left">
+                            <label>Apellido paterno</label>
+                            <input class="uk-input" type="text" readonly value="<%=user.middlename%>">
+                        </div>
+                        <div class="uk-text-left">
+                            <label>Apellido materno</label>
+                            <input class="uk-input" type="text" readonly value="<%=user.lastname%>">
+                        </div>
+                        <div class="uk-text-left">
+                            <label>Escuela</label>
+                            <input class="uk-input" type="text" readonly value="<%=user.school%>">
+                        </div>
+                    </div>    
+                    <div class="uk-width-1-2@s input-containers">
+                        <div class="uk-text-left">
+                            <label>Grado</label>
+                            <input class="uk-input" type="text" readonly value="<%=user.grade%>">
+                        </div>
+                        <div class="uk-text-left">
+                            <label>Entidad</label>
+                            <input class="uk-input" type="text" readonly value="<%=user.entity%>">
+                        </div>
+                        
+                        <div class="uk-text-left">
+                            <label>CURP</label>
+                            <input class="uk-input" type="text" placeholder="CURP" name="curp" readonly value="<%=user.curp%>">
+                        </div>
+                        
+                        <div class="uk-text-left">
+                            <label>Correo electrónico</label>
+                            <input class="uk-input" type="email" placeholder="Correo electrónico" name="email" readonly value="<%=user.email%>">
+                        </div>
+                    </div> 
+                    <div class="uk-width-1-2@s">
+                        <form style="width:100%;" action="/student/change-coupon" method="POST">
+                            <div class="uk-width-1-1@s input-containers uk-text-center" >
+                                <div class="uk-text-left uk-width-1-1@s">
+                                    <label>Cupón</label>
+                                    <input class="uk-input" type="text" placeholder="Cupón" name="coupon" value="<%=user.couponCode%>">
+                                    <input  type="hidden" name="gradoparacoupon" value="<%=user.grade%>">
+                                    <input  type="hidden" name="concursoparacoupon" value="<%=user.concursoCode%>">
+                                </div>
+                            </div>
+                            <%
+                            if(coupon){%>
+                                <div class="uk-width-1-1@s input-containers uk-text-left" >
+                                    Coupon Code : <b><%=coupon.code%></b> Applied
+                                </div>
+                            <%}
+                            %>
+
+                            <div class="uk-width-1-1@s input-containers uk-text-center" >
+                                <div class="uk-text-left uk-width-1-1@s">
+                                    <label> </label>
+                                    <button class="uk-button uk-button-primary" style="width:100%;">Añadir cupón</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div> 
+                    <div class="uk-width-1-2@s uk-text-left">
+                        <%if(coupon){%>
+                            <div class="uk-width-1-1@s input-containers uk-text-center" >
+                                <div class="uk-text-left">
+                                    <label><b>Descuento de Cupón</b></label>
+                                    <input class="uk-input" type="text" readonly value="<%=coupon.percent%>%">
+                                </div>
+                            </div>
+                        <%}
+                        %>
+                        <div class="uk-width-1-1@s input-containers uk-text-center" >
+                            <div class="uk-text-left">
+                                <label><b>Pago Total</b></label>
+                                <input class="uk-input" type="text" readonly value="$<%=amount%>">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="error red"><%=message%></p>
+                <p class="uk-text-center">
+                    <%if(coupon){%>
+                        <%if(coupon.percent==100){%>
+                            <form method = "POST" action="/student/check-full-discount">
+                                <button class="uk-button uk-button-primary blue-bg" type="submit">Continuar</button>
+                            </form>
+                        <%}else{%>
+                            <form method = "POST" action="http://198.101.187.112:3006/checkout/">
+                            
+                                 <input  type="hidden" name="laurlparametrizada" value="<%=miurl%>">
+                                 <input  type="hidden" name="pagobanwireir" value="cobrar">
+                                 
+                                <div><input type="hidden" name="typepay" class="uk-input"  value="tarjeta" readonly></div>
+                                <div><input type="hidden" name="amount"   value="<%=amount%>"></div>
+                                <div><input type="hidden" name="email"   value="<%=user.email%>" ></div>                          
+                                <div><input type="hidden" name="estudiantenombre"  value="<%=user.name%>" ></div>                                
+                                <div><input type="hidden" name="estudianteapellidop"  value="<%=user.middlename%>" ></div>                                
+                                <div><input type="hidden" name="estudianteapellidom"  value="<%=user.lastname%>"></div>                                
+                                <div><input type="hidden" name="referenciacobro"  value="LeescubreloRegFee<%=user.id%>"></div>
+                                <div><input type="hidden" name="errpay"  value="cobro" ></div>
+                                 
+                                <button class="uk-button uk-button-primary blue-bg" type="submit">Continuar</button>
+                            </form>
+                            
+<!--                            <script
+                                type="text/javascript"
+                                src="https://sw.banwire.com/checkout.js"
+                                data-user="Leescubrelo" 
+                                data-total="<%=amount%>.00" 
+                                data-cust-fname="<%=user.name%>" 
+                                data-cust-mname="<%=user.middlename%>" 
+                                data-cust-lname="<%=user.lastname%>" 
+                                data-cust-email="<%=user.email%>" 
+                                data-success-page="http://198.101.187.112:3006/checkout/pending" 
+                                data-error-page="http://198.101.187.112:3006/checkout?err='payment'" 
+                                data-pending-page="http://198.101.187.112:3006/checkout/pending" 
+                                data-concept="Cuota de inscripción de Leescubrelo" 
+                                data-reference="LeescubreloRegFee<%=user.id%>" 
+                                data-notify-url="http://198.101.187.112:3006/admin/transaction-status" 
+                                data-button-caption="Continuar" 
+                                data-button-class="btn-pay uk-button uk-button-primary blue-bg">
+                            </script>
+-->                            
+                        <%}%>
+                    <%}else{%>
+                    
+                            <form method = "POST" action="http://198.101.187.112:3006/checkout/">
+                            
+                                 <input  type="hidden" name="pagobanwireir" value="cobrar">
+                                 <input  type="hidden" name="laurlparametrizada2" value="<%=miurl%>">
+                                 
+                                <div><input type="hidden" name="typepay" class="uk-input"  value="tarjeta" readonly></div>
+                                <div><input type="hidden" name="amount"   value="<%=amount%>"></div>
+                                <div><input type="hidden" name="email"   value="<%=user.email%>" ></div>                          
+                                <div><input type="hidden" name="estudiantenombre"  value="<%=user.name%>" ></div>                                
+                                <div><input type="hidden" name="estudianteapellidop"  value="<%=user.middlename%>" ></div>                                
+                                <div><input type="hidden" name="estudianteapellidom"  value="<%=user.lastname%>"></div>                                
+                                <div><input type="hidden" name="referenciacobro"  value="LeescubreloRegFee<%=user.id%>"></div>
+                                <div><input type="hidden" name="errpay"  value="cobro" ></div>
+                                 
+                                <button class="uk-button uk-button-primary blue-bg" type="submit">Continuar</button>
+                            </form>
+                            
+<!--                            
+                        <script
+                            type="text/javascript"
+                            src="https://sw.banwire.com/checkout.js"
+                            data-user="Leescubrelo" 
+                            data-total="<%=amount%>.00" 
+                            data-cust-fname="<%=user.name%>" 
+                            data-cust-mname="<%=user.middlename%>" 
+                            data-cust-lname="<%=user.lastname%>" 
+                            data-cust-email="<%=user.email%>" 
+                            data-success-page="http://198.101.187.112:3006/checkout/pending" 
+                            data-error-page="http://198.101.187.112:3006/checkout?err='payment'" 
+                            data-pending-page="http://198.101.187.112:3006/checkout/pending" 
+                            data-concept="Cuota de inscripción de Leescubrelo" 
+                            data-reference="LeescubreloRegFee<%=user.id%>" 
+                            data-notify-url="http://198.101.187.112:3006/admin/transaction-status" 
+                            data-button-caption="Continuar" 
+                            data-button-class="btn-pay uk-button uk-button-primary blue-bg">
+                        </script>
+ -->                       
+                        
+                    <%}%>
+                    
+                </p>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    <% include includes/footer.ejs %>
+
+<!--  banwire abel compartira   <script src='https://utl/assets/checkout3.js'/> </script>
+-->
+
+    <script type="text/javascript">
+        
+        var message = "<%=message%>";
+        //var execute Secure Window
+        var executesecurewindow ="NO";
+        
+        //var execute Secure Window
+        var tokenexecutesecurewindow ="NO";        
+        
+        console.log("workign in here");
+        console.log(message);
+        if(message){
+            $.notify(message, {position:"top center", className:"error"});
+        }
+
+     //TOCHI
+        if(executesecurewindow == "SI"){
+        
+        
+              var securewindows = new BwGateway({
+                 'token':tokenexecutesecurewindow, 
+                 'on_success':'http://198.101.187.112:3006/checkout/pending', 
+                 'pending_page':'http://198.101.187.112:3006/checkout/pending', 
+                 'error_page':"http://198.101.187.112:3006/checkout?err='payment'",
+                 'on_cancel': "http://198.101.187.112:3006/checkout?cancelated='si'", 
+                 
+                 
+              }); 
+
+///  no tiene  url for notification? once the transactions oxxo, spei are completed?
+//// asi : data-notify-url="http://198.101.187.112:3006/admin/transaction-status" 
+
+              securewindows.pay(); //ejecución de la ventana (secure windows)  
+         }
+
+     //TOCHI
+     
+
+    </script>
+</body>
+</html>
+  

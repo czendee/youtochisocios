@@ -1,0 +1,51 @@
+*+.uk-margin, .uk-margin{
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+}
+
+.uk-input, .uk-select, .uk-textarea{
+    font-size: 14px;
+}
+
+.uk-button{
+
+}
+
+.uk-button-primary{
+    background-color: #f18b2a !important;
+}
+
+
+.uk-checkbox:checked:focus, .uk-checkbox:indeterminate:focus, .uk-radio:checked:focus, .uk-radio:checked{
+    background-color: #f18b2a !important;
+}
+
+.uk-checkbox:checked, .uk-checkbox:indeterminate, .uk-radio:checked{
+    background-color: #f18b2a !important;
+}
+
+
+
+.uk-input:focus, .uk-select:focus, .uk-textarea:focus{
+    border-color:#f18b2a;
+}
+
+.purple-bg{
+    background-color:#864392 !important;
+}
+
+.purple{
+    color:#864392 !important;
+}
+
+.yellow-bg{
+    background-color: #f18b2a;
+}
+
+.purple-bg{
+    background-color: #f18b2a;
+}
+
+.blue-bg{
+    background-color: #66a0d6 !important;
+}

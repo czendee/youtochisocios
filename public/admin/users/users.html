@@ -1,0 +1,100 @@
+<div class="container users" style="padding:30px">
+    <div class="uk-grid" uk-grid>
+        <div class="uk-width-1-1 uk-text-right">
+            <button class="uk-button uk-button-primary" uk-toggle="target: #addUser" ng-click="usersController.newuser.name=''; usersController.newuser.lastname=''; usersController.newuser.email=''; usersController.newuser.password=''" type="button">+ Agregar Usuario</button>
+        </div>
+        <div class="uk-width-1-1">
+            <table class="uk-table">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>nombre</th>
+                        <th>email</th>
+                        <th>rol</th>
+                        <th>grado</th>
+                        <th>acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        
+                    </tr>
+                    <tr ng-repeat="user in usersController.users">
+                        <td>{{user.id}}</td>
+                        <td>{{user.name}} {{user.lastname}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.role}}</td>
+                        <td><div ng-if="user.role=='teacher'">{{user.grade}}</div></td>
+                        <td><button class="uk-button uk-button-warning" uk-toggle="target: #editUser" ng-click="usersController.setEditUser(user);" style="margin-right: 5px;">Editar</button><button class="uk-button uk-button-danger" ng-click="usersController.deleteUser(user, $index)">Eliminar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="addUser" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title">Agregar Usuario</h2>
+        <div class="uk-width-1-1 uk-text-center">
+            <form class="uk-form" actions="/admin/user/create" method="POST" ng-submit="usersController.addUser()">
+                <div><input type="text" name="name" placeholder="First Name" class="uk-input" ng-model="usersController.newuser.name" ng-init="usersController.newuser.name=''" required></div>
+                <div><input type="text" name="lastname" placeholder="Last Name" class="uk-input" ng-model="usersController.newuser.lastname" ng-init="usersController.newuser.lastname=''" required></div>
+                <div><input type="text" name="email" placeholder="Email" class="uk-input" ng-model="usersController.newuser.email" ng-init="usersController.newuser.email=''"  required></div>
+                <div><input type="password" name="password" placeholder="password" class="uk-input" ng-model="usersController.newuser.password" ng-init="usersController.newuser.password=''"  required></div>
+                <div>
+                    <select class="uk-input" required name="role" ng-model="usersController.newuser.role">
+                        <option value="admin">Admin</option>
+                        <option value="teacher">Maestro</option>
+                    </select>
+                </div>
+                <div ng-show="usersController.newuser.role=='teacher'">
+                    <select class="uk-input" name="grade" ng-model="usersController.newuser.grade" required>
+                        <option value="1">Grado 1</option>
+                        <option value="2">Grado 2</option>
+                        <option value="3">Grado 3</option>
+                    </select>
+                </div>
+                <div class="uk-margin">
+
+                    <button class="uk-modal-close uk-button" type="button">Cancelar</button>
+                    <button class="uk-button uk-button-primary">
+                        Agregar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="editUser" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title">Editar Usuario</h2>
+        
+        <div class="uk-width-1-1 uk-text-center">
+            <form class="uk-form" actions="/admin/user/edit" method="POST" ng-submit="usersController.editUser()">
+                <div><input type="text" name="name" placeholder="First Name" class="uk-input" ng-model="usersController.edituser.name" required></div>
+                <div><input type="text" name="lastname" placeholder="Last Name" class="uk-input" ng-model="usersController.edituser.lastname" required></div>
+                <div>
+                    <select class="uk-input" required name="role" ng-model="usersController.edituser.role">
+                        <option value="admin">Admin</option>
+                        <option value="teacher">Maestro</option>
+                    </select>
+                </div>
+                <div ng-hide="usersController.edituser.role=='admin'">
+                    <select class="uk-input" required name="grade" ng-model="usersController.edituser.grade">
+                        <option value="1">Grado 1</option>
+                        <option value="2">Grado 2</option>
+                        <option value="3">Grado 3</option>
+                    </select>
+                </div>
+                <div class="uk-margin">
+                    <button class="uk-modal-close uk-button" type="button">Cancelar</button>
+                    <button class="uk-button uk-button-primary">
+                        Edit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

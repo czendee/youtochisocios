@@ -1,0 +1,116 @@
+<div class="container basic uk-text-center admin">
+    <div uk-grid style="justify-content:center;">
+        <div class="card-container">
+            <div class="card" ng-if="navbarController.role=='admin'"  ng-click="dashboardController.setFilter('all')">
+                <h3 class="uk-card-title">Total</h3>
+                <h1 class="total-students">{{dashboardController.totalStudents.length}}</h1>
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="card" ng-if="navbarController.role=='admin'"  ng-click="dashboardController.setFilter('sent')">
+                <h3 class="uk-card-title">Enviados</h3>
+                <h1 class="total-students">{{dashboardController.studentType.sent.length}}</h1>
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="card" ng-if="navbarController.role=='admin'"  ng-click="dashboardController.setFilter('approved')">
+                <h3 class="uk-card-title">Aprobados</h3>
+                <h1 class="total-students">{{dashboardController.studentType.approved.length}}</h1>
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="card" ng-if="navbarController.role=='admin'"  ng-click="dashboardController.setFilter('rejected')">
+                <h3 class="uk-card-title">Rechazados</h3>
+                <h1 class="total-students">{{dashboardController.studentType.rejected.length}}</h1>
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="card" ng-if="navbarController.role=='admin'"  ng-click="dashboardController.setFilter('evaluating')">
+                <h3 class="uk-card-title">Corrección1</h3>
+                <h1 class="total-students">{{dashboardController.studentType.evaluating.length}}</h1>
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="card" ng-if="navbarController.role=='admin'"  ng-click="dashboardController.setFilter('evaluated')">
+                <h3 class="uk-card-title">Corrección2</h3>
+                <h1 class="total-students">{{dashboardController.studentType.evaluated.length}}</h1>
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="card" ng-if="navbarController.role=='admin'"  ng-click="dashboardController.setFilter('paid')">
+                <h3 class="uk-card-title">Pago</h3>
+                <h1 class="total-students">{{dashboardController.studentType.paid.length}}</h1>
+            </div>
+        </div>
+        <br />
+        
+       <div class="uk-width-1-1 uk-text-right" >
+           Concursos:
+           <input type="hidden"  ng-model="originalTodos"   ng-value="dashboardController.students" >
+           <select  ng-model="dashboardController.searchcoupon.concursoCode">
+
+                          <option ng-repeat="concurso in dashboardController.concursos  "  value="{{concurso.code}}">{{concurso.code}} :)) </option>               
+               
+<!--                <option ng-repeat="student in dashboardController.students  | orderBy : 'concursoCode' " ng-if="student.concursoCode!= dashboardController.students[$index - 1].concursoCode" value="{{student.concursoCode}}">{{student.concursoCode}} :)  {{student.concursoCode}} </option>
+
+
+                 <option   ng-repeat="student in originalLista "ng-init="originalLista =  {dashboardController.students | orderBy : 'student.concursoCode'}" ng-if="student.concursoCode!= concursitos($index -1).concursoCode"    value="{{student.concursoCode  }}">{{student.concursoCode}}</option>
+               
+<!--                 <option   ng-repeat="student in concursitos = { originalTodos | orderBy : 'student.concursoCode'} " ng-if="student.concursoCode!= concursitos($index -1).concursoCode"    value="{{student.concursoCode  }}">{{student.concursoCode}}</option>
+-->
+             </select>
+           
+           
+            <!--   <button class="uk-button uk-button-primary"  ng-click=" " type="button">FILTRAR</button>   -->
+           
+        </div> 
+        
+        <div class="uk-card uk-card-default uk-card-body uk-width-1-1@m userdata">
+            <h3 class="uk-card-title">Tabla de usuarios registrados</h3>
+            <table class="uk-table uk-table-striped uk-table-hover uk-table-justify uk-table-responsive">
+                <thead>
+                    <tr>
+                        <th class="uk-table-expand">Nombre</th>
+                        <th>Escuela</th>
+                        <th>Grado</th>
+                        <th>Concurso</th>
+                        <th>CURP</th>
+                        <th>Correo electrónico</th>
+                        <th>Estatus</th>
+                        <th><div ng-if="navbarController.role=='admin'">Maestro1</div></th>
+                        <th><div ng-if="navbarController.role=='admin'">Maestro2</div></th>
+                        <th>Acción</th>
+                    </tr>
+                    
+                </thead>
+                <tbody class="registration-data">
+                    <tr ng-repeat="student in dashboardController.students" ng-if=" (navbarController.role=='admin'  ||  ( navbarController.role=='teacher' && student.status == 'paid' && student.grade == navbarController.grade ) ) && student.concursoCode == dashboardController.searchcoupon.concursoCode"  >
+                        
+                        <!--ng-if="navbarController.role=='admin'  ||  ( navbarController.role=='teacher' && student.grade == student.evaluation1TeacherModel.grade )" -->
+                        <!--ng-if="navbarController.role=='admin'  ||  ( navbarController.role=='teacher' && student.status == 'paid' )" -->
+                        
+                        <td>{{student.name}} {{student.middlename}} {{student.lastname}}</td>
+                        <td>{{student.school}}</td>
+                        <td>{{student.grade}}</td>
+                        <td>{{student.concursoCode}} </td>
+                        <td>{{student.curp}}</td>
+                        <td>{{student.email}}</td>
+                        <td>{{student.status}}</td>
+                        <td><div ng-if="navbarController.role=='admin'">{{student.evaluation1TeacherModel.name}}</div></td>
+                        <td><div ng-if="navbarController.role=='admin'">{{student.evaluation2TeacherModel.name}}</div></td>
+                        <td>
+                            <a ui-sref="evaluate({studentId:student.id})"><button class="uk-button uk-button-primary green" ng-if="student.status=='paid'">Evaluar</button></a>
+
+                            <a ui-sref="evaluate({studentId:student.id})"><button class="uk-button uk-button-warning green" ng-if="student.status=='approved'">Re-Evaluar</button></a>
+
+<!-- per Fernanda - do not allow revaluar when rejected
+                             <a ui-sref="evaluate({studentId:student.id})"><button class="uk-button uk-button-warning " ng-if="student.status=='rejected'">Re-Evaluar</button></a>
+-->
+                             
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

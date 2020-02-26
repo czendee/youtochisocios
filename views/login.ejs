@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leescúbrelo | Essay Writing Competition</title>
+    <%include includes/header.ejs%>
+</head>
+<body>
+    <div class="main">
+        <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+            <div class="uk-navbar-left">
+                <a class="uk-navbar-item uk-logo" href="/"><img src="/images/logo3.png"/></a>
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href=""></a></li>
+                    <li class="uk-parent"><a href=""></a></li>
+                    <li><a href=""></a></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href="/"><button class="uk-button uk-button-primary">REGISTRO</button></a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="main-login-container uk-text-center">
+            <h1 class="purple">Inicio de sesión</h1>
+            <form id="loginForm" action="/student/login" method="POST" class="">
+                <div class="uk-fieldset uk-grid-small">                            
+                    
+                    <div class="uk-margin uk-flex uk-flex-nowrap">
+                        <div class="icon-container">
+                            <img src="/images/usericon.png">
+                        </div>
+                        <input class="uk-input" type="email" placeholder="Correo electrónico" name="email" required>
+                    </div>
+                    
+                    <div class="uk-margin uk-flex uk-flex-nowrap">
+                        <div class="icon-container">
+                            <img src="/images/lockicon.png">
+                        </div>
+                        <input class="uk-input" type="password" placeholder="Contraseña" name="password" required>
+                    </div>
+                
+                </div>
+                <p class="error red"><%=message%></p>
+                <p class="uk-text-center">
+                    <button class="uk-button uk-button-primary blue-bg" type="submit">Enviar</button>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <% include includes/footer.ejs %>
+
+
+    <script type="text/javascript">
+        $('.school').on('change', function() {
+          console.log( this.value );
+          if(this.value == "other"){
+            $(".school-container").append('<input class="uk-input custom-school" type="text" placeholder="School Name" name="customSchool" required>')
+          }
+          else
+          {
+            $(".custom-school").remove();
+          }
+        })
+        var message = "<%=message%>";
+        console.log("workign in here");
+        console.log(message);
+        if(message){
+            $.notify(message, {position:"top center", className:"error"});
+        }
+    </script>
+</body>
+</html>
