@@ -63,7 +63,7 @@ nav{
 }
 
 .container.main-registration{
-    background:url(/images/bg1.png);
+   /* background:url(/images/bg1.png);*/
     background-size: cover;
     background-position: center center;
     /*background-color: #D9572D;*/
@@ -240,7 +240,7 @@ nav{
 
 
 .container.notice{
-    background:url('/images/bg3.png');
+  /*  background:url('/images/bg3.png');*/
     background-size: cover;
     background-position: center center;
     color:white;
