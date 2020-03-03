@@ -1,7 +1,7 @@
 <div class="container teachers" style="padding:30px">
     <div class="uk-grid" uk-grid>
         <div class="uk-width-1-1 uk-text-right">
-            <button class="uk-button uk-button-primary" uk-toggle="target: #addConcurso" ng-click="concursosController.newconcurso.code=''; concursosController.newconcurso.name=''; concursosController.newconcurso.tipo='';concursosController.newconcurso.textoregla='';" type="button">+ AGREGAR CONCURSO</button>
+            <button class="uk-button uk-button-primary" uk-toggle="target: #addConcurso" ng-click="concursosController.newconcurso.code=''; concursosController.newconcurso.name=''; concursosController.newconcurso.tipo='';concursosController.newconcurso.textoregla='';" type="button">+ AGREGAR CHALLENGE</button>
         </div>
         <div class="uk-width-1-1">
             <table class="uk-table">
@@ -31,11 +31,11 @@
 
 <div id="addConcurso" uk-modal>
     <div class="uk-modal-dialog uk-modal-body">
-        <h2 class="uk-modal-title">Agregar Concurso</h2>
+        <h2 class="uk-modal-title">Agregar Challenge</h2>
         <div class="uk-width-1-1 uk-text-center">
             <form class="uk-form" actions="/admin/concurso/create" method="POST" ng-submit="concursosController.addConcurso()">
-                <div><input type="text" name="code" placeholder="Codigo Concurso" class="uk-input" ng-model="concursosController.newconcurso.code" required></div>
-                <div><input type="text" name="name" placeholder="Nombre Concurso" class="uk-input" ng-model="concursosController.newconcurso.name" required></div>
+                <div><input type="text" name="code" placeholder="Codigo Challenge" class="uk-input" ng-model="concursosController.newconcurso.code" required></div>
+                <div><input type="text" name="name" placeholder="Nombre Challenge" class="uk-input" ng-model="concursosController.newconcurso.name" required></div>
          
                 <div>
                     <select class="uk-input" name="tipo" ng-model="concursosController.newconcurso.tipo" required>
@@ -46,7 +46,7 @@
                     </select>
                 </div>
                 
-                <div><input type="text" name="textoregla" placeholder="Reglas del Concurso" class="uk-input" ng-model="concursosController.newconcurso.textoregla" required></div>
+                <div><input type="text" name="textoregla" placeholder="Reglas del Challenge" class="uk-input" ng-model="concursosController.newconcurso.textoregla" required></div>
                 <button class="uk-button uk-button-primary" style="margin-top: 20px;">
                     Add
                 </button>
