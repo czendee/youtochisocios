@@ -5,7 +5,7 @@
         </div>
 
         <div class="uk-width-1-1 uk-text-right">
-             Concursos:
+             Challenges:
            <select  ng-model="finalistsController.searchcoupon.concursoCode">
                  
                  <option ng-repeat="student in finalistsController.finalists   | orderBy : 'concursoCode' "  ng-if="student.concursoCode!= finalistsController.finalists[$index - 1].concursoCode"   value="{{student.concursoCode}}">{{student.concursoCode}}</option>
