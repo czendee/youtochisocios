@@ -69,6 +69,7 @@ nav{
     /*background-color: #D9572D;*/
     padding:4%;
     padding-bottom: 150px;
+    color:red;
 }
 
 .container.edit-profile{
@@ -163,7 +164,8 @@ nav{
 
 .register-button-container .register-button{
     float:right;
-    background-color: #C43E1A;
+    //background-color: #C43E1A;
+    background-color: red;
     //box-shadow: 0px 1px 12px 0px rgb(255, 255, 255);
     font-size: 18px;
     margin-top: 10px;
