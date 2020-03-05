@@ -4,7 +4,7 @@
         </div>
         
         <div class="uk-width-1-1 uk-text-right">
-            Concursos:
+            Challenges :
            <select  ng-model="transactionsController.searchcoupon.concursoCode">
                  
                  <option ng-repeat="transaction in transactionsController.transactions  | orderBy : 'concursoCode' "   ng-if="transaction.student.concursoCode != transactionsController.transactions[$index - 1].student.concursoCode"  value="{{transaction.student.concursoCode}}">{{transaction.student.concursoCode}}</option>
