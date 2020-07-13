@@ -25,10 +25,18 @@ consign()
     .then("./initializeModels.js")
     .into(app);
 
+app.listen(process.env.PORT || 5000, () => {
+        logger.info(`Server started on port ${appPort}`);
+    });
+//START: do not use the logic to set a fixed port, let heroku to assign the port
+/*
 if (process.env.NODE_ENV !== "test") {
+    
     app.listen(appPort, () => {
         logger.info(`Server started on port ${appPort}`);
     });
 }
+*/
+//
 
 module.exports = app;
