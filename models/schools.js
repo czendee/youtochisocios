@@ -16,10 +16,10 @@ module.exports = app => {
         name: {
             type: Sequelize.STRING
         },
-        createdAt: {
+        createdat: {
             type: Sequelize.DATE
         },
-        updatedAt: {
+        updatedat: {
             type: Sequelize.DATE
         }
     },
