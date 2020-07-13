@@ -16,7 +16,7 @@ module.exports = app => {
         name: {
             type: Sequelize.STRING
         },
-        createdat: {
+        createdat: { 
             type: Sequelize.DATE
         },
         updatedat: {
