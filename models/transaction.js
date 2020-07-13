@@ -16,10 +16,10 @@ module.exports = app => {
               primaryKey: true,
               type: Sequelize.INTEGER
         },
-        createdAt: {
+        createdat: {
             type: Sequelize.DATE
         },
-        updatedAt: {
+        updatedat: {
             type: Sequelize.DATE
         },
         status: {
