@@ -21,6 +21,10 @@ module.exports = {
         }
     },
     postgresql: {
+        define: {
+            createdAt: "createdat",
+            updatedAt: "updatedat"
+          },
         username: "lerepagr",
         password: "Ag8q2utgSsVy2tyR7_M9cNYbzsqSvwma",
         database: "lerepagr",
