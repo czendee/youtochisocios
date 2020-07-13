@@ -27,10 +27,10 @@ module.exports = app => {
         textoregla: {
             type: Sequelize.TEXT
         },        
-        createdAt: {
+        createdat: {
             type: Sequelize.DATE
         },
-        updatedAt: {
+        updatedat: {
             type: Sequelize.DATE
         }
     },
