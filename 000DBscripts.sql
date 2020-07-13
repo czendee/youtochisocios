@@ -9,8 +9,8 @@ CREATE SEQUENCE concursos_id_seq;
      name character varying(255) NULL,       
      tipo character varying(255) NULL,       
      textoregla text NULL,                   
-     createdAt timestamp with time zone NULL,
-     updatedAt timestamp with time zone NULL,
+     createdat timestamp with time zone NULL,
+     updatedat timestamp with time zone NULL,
   primary key(id)
  ); 
 
@@ -26,8 +26,8 @@ CREATE SEQUENCE coupons_id_seq;
      percent integer NULL,                   
      userId integer NULL,                    
      details text NULL,                      
-     createdAt timestamp with time zone NULL,
-     updatedAt timestamp with time zone NULL,
+     createdat timestamp with time zone NULL,
+     updatedat timestamp with time zone NULL,
      status character varying(255) NULL,     
      grade integer NULL,                     
      concursoCode character varying(255) NULL,
@@ -40,8 +40,8 @@ CREATE SEQUENCE schools_id_seq;
  (                                           
      id integer NOT NULL  DEFAULT nextval('schools_id_seq'::regclass),                                      
      name character varying(255) NULL,       
-     createdAt timestamp with time zone NULL,
-     updatedAt timestamp with time zone NULL,
+     createdat timestamp with time zone NULL,
+     updatedat timestamp with time zone NULL,
   primary key(id) 
 
  );     
@@ -52,8 +52,8 @@ CREATE TABLE students
      id integer NOT NULL DEFAULT nextval('students_id_seq'::regclass),                                      
      email character varying(255) NULL,        
      password character varying(255) NULL,     
-     createdAt timestamp with time zone NULL,  
-     updatedAt timestamp with time zone NULL,  
+     createdat timestamp with time zone NULL,  
+     updatedat timestamp with time zone NULL,  
      status character varying(255) NULL,       
      essay text NULL,                          
      curp character varying(255) NULL,         
@@ -99,8 +99,8 @@ CREATE SEQUENCE transactions_id_seq;
  CREATE TABLE transactions                     
  (                                             
      id integer NOT NULL DEFAULT nextval('transactions_id_seq'::regclass),                                                           
-     createdAt timestamp with time zone NULL,  
-     updatedAt timestamp with time zone NULL,  
+     createdat timestamp with time zone NULL,  
+     updatedat timestamp with time zone NULL,  
      status character varying(255) NULL,       
      event character varying(255) NULL,        
      auth_code character varying(255) NULL,    
@@ -134,8 +134,8 @@ CREATE SEQUENCE users_id_seq;
      id integer NOT NULL DEFAULT nextval('users_id_seq'::regclass),
      email character varying(255) NULL,      
      password character varying(255) NULL,   
-     createdAt timestamp with time zone NULL,
-     updatedAt timestamp with time zone NULL,
+     createdat timestamp with time zone NULL,
+     updatedat timestamp with time zone NULL,
      role character varying(255) NULL,       
      name character varying(255) NULL,       
      middlename character varying(255) NULL, 
@@ -147,5 +147,5 @@ CREATE SEQUENCE users_id_seq;
  ); 
 
 
- insert into users ("email", "password", "createdAt", "updatedAt", "role", "name", "middlename", "lastname", "grade", "marked") values ('admin@admin.com', '12345', current_timestamp, current_timestamp, 'admin', 'administrador', 'i', 'apellidoadd', '1', 'Y');
+ insert into users ("email", "password", "createdat", "updatedat", "role", "name", "middlename", "lastname", "grade", "marked") values ('admin@admin.com', '12345', current_timestamp, current_timestamp, 'admin', 'administrador', 'i', 'apellidoadd', '1', 'Y');
  
