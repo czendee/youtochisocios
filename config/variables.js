@@ -21,10 +21,10 @@ module.exports = {
         }
     },
     postgresql: {
-        username: process.env.CAL_DB_USERNAME,
-        password: process.env.CAL_DB_PASSWORD,
-        database: process.env.CAL_DB_NAME,
-        host:process.env.CAL_DB_HOST,
+        username: "lerepagr",
+        password: "Ag8q2utgSsVy2tyR7_M9cNYbzsqSvwma",
+        database: "lerepagr",
+        host:"stampy.db.elephantsql.com",
         dialect: "postgres",
         port:"5432",
         timezone: '-05:00',
@@ -32,7 +32,7 @@ module.exports = {
         protocol: 'postgres',
         logging:  true,
         options:{
-            host:process.env.CAL_DB_HOST,
+            host:"stampy.db.elephantsql.com",
             dialect:'postgres'
         },
         dialectOptions: {
