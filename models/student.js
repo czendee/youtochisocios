@@ -69,76 +69,76 @@ module.exports = app => {
         plagarism:{
             type:Sequelize.STRING
         },
-        spellingPoints:{
+        spellingpoints:{
             type:Sequelize.INTEGER
         },
         title:{
             type:Sequelize.STRING
         },
-        evaluation1Teacher:{
+        evaluation1teacher:{
             type:Sequelize.INTEGER
         },
-        evaluation2Teacher:{
+        evaluation2teacher:{
             type:Sequelize.INTEGER
         },
-        contentCriteria1A:{
+        contentcriteria1a:{
             type:Sequelize.INTEGER
         },
-        contentCriteria2A:{
+        contentcriteria2a:{
             type:Sequelize.INTEGER
         },
-        contentCriteria3A:{
+        contentcriteria3a:{
             type:Sequelize.INTEGER
         },
-        contentCriteria4A:{
+        contentcriteria4a:{
             type:Sequelize.INTEGER
         },
-        contentCriteria5A:{
+        contentcriteria5a:{
             type:Sequelize.INTEGER
         },        
-        draftingCriteria1A:{
+        draftingcriteria1a:{
             type:Sequelize.INTEGER
         },
-        draftingCriteria2A:{
+        draftingcriteria2a:{
             type:Sequelize.INTEGER
         },
-        draftingCriteria3A:{
+        draftingcriteria3a:{
             type:Sequelize.INTEGER
         },        
-        contentCriteria1B:{
+        contentcriteria1b:{
             type:Sequelize.INTEGER
         },
-        contentCriteria2B:{
+        contentcriteria2b:{
             type:Sequelize.INTEGER
         },
-        contentCriteria3B:{
+        contentcriteria3b:{
             type:Sequelize.INTEGER
         },
-        contentCriteria4B:{
+        contentcriteria4b:{
             type:Sequelize.INTEGER
         },
-        contentCriteria5B:{
+        contentcriteria5b:{
             type:Sequelize.INTEGER
         },        
-        draftingCriteria1B:{
+        draftingcriteria1b:{
             type:Sequelize.INTEGER
         },
-        draftingCriteria2B:{
+        draftingcriteria2b:{
             type:Sequelize.INTEGER
         },
-        draftingCriteria3B:{
+        draftingcriteria3b:{
             type:Sequelize.INTEGER
         },        
-        paymentMade:{
+        paymentmade:{
             type:Sequelize.BOOLEAN
         },
-        paymentStatus:{
+        paymentstatus:{
             type:Sequelize.STRING
         },
-        transactionId:{
+        transactionid:{
             type:Sequelize.INTEGER
         },
-        couponCode:{
+        couponcode:{
             type:Sequelize.STRING
         },
      
@@ -148,7 +148,7 @@ module.exports = app => {
         finalist: {
             type:Sequelize.BOOLEAN
         },
-        concursoCode:{
+        concursocode:{
             type:Sequelize.STRING
         }
 
@@ -299,22 +299,22 @@ module.exports = app => {
                             object={
                                 comments:JSON.stringify(commentToSave),
                                 plagarism:data.plagarism,
-                                spellingPoints:data.spellingPoints,
+                                spellingpoints:data.spellingPoints,
                                 fouls:data.fouls,
                                 status:"approved",
-                                evaluation1Teacher:teacher1.id,
-                                evaluation2Teacher:teacher2.id
+                                evaluation1teacher:teacher1.id,
+                                evaluation2teacher:teacher2.id
                             }
                         }
                         else
                         {
                             object={
                                 plagarism:data.plagarism,
-                                spellingPoints:data.spellingPoints,
+                                spellingpoints:data.spellingPoints,
                                 fouls:data.fouls,
                                 status:"approved",
-                                evaluation1Teacher:teacher1.id,
-                                evaluation2Teacher:teacher2.id
+                                evaluation1teacher:teacher1.id,
+                                evaluation2teacher:teacher2.id
                             }
                         }
                         Student.update(object,{
@@ -353,7 +353,7 @@ module.exports = app => {
                         object={
                             comments:JSON.stringify(commentToSave),
                             plagarism:data.plagarism,
-                            spellingPoints:data.spellingPoints,
+                            spellingpoints:data.spellingPoints,
                             fouls:data.fouls,
                             status:"approved"
                         }
@@ -362,7 +362,7 @@ module.exports = app => {
                     {
                         object={
                             plagarism:data.plagarism,
-                            spellingPoints:data.spellingPoints,
+                            spellingpoints:data.spellingPoints,
                             fouls:data.fouls,
                             status:"approved"
                         }
@@ -429,7 +429,7 @@ module.exports = app => {
                     object={
                         comments:JSON.stringify(commentToSave),
                         plagarism:data.plagarism,
-                        spellingPoints:data.spellingPoints,
+                        spellingpoints:data.spellingPoints,
                         fouls:data.fouls,
                         status:"rejected"
                     }
@@ -438,7 +438,7 @@ module.exports = app => {
                 {
                     object={
                         plagarism:data.plagarism,
-                        spellingPoints:data.spellingPoints,
+                        spellingpoints:data.spellingPoints,
                         fouls:data.fouls,
                         status:"rejected"
                     }
@@ -464,8 +464,8 @@ module.exports = app => {
                 status:["approved","evaluating"],
                 grade:user.grade,
                 $or:[
-                    {evaluation1Teacher:user.id, contentCriteria1A:null},
-                    {evaluation2Teacher:user.id, contentCriteria1B:null}
+                    {evaluation1teacher:user.id, contentcriteria1a:null},
+                    {evaluation2teacher:user.id, contentcriteria1b:null}
                 ]
             }
         })
@@ -495,14 +495,14 @@ module.exports = app => {
                         status = "evaluated";
                     }
                     Student.update({
-                        contentCriteria1A:params.contentCriteria1,
-                        contentCriteria2A:params.contentCriteria2,
-                        contentCriteria3A:params.contentCriteria3,
-                        contentCriteria4A:params.contentCriteria4,
-                        contentCriteria5A:params.contentCriteria5,
-                        draftingCriteria1A:params.draftingCriteria1,
-                        draftingCriteria2A:params.draftingCriteria2,
-                        draftingCriteria3A:params.draftingCriteria3,
+                        contentcriteria1a:params.contentCriteria1,
+                        contentcriteria2a:params.contentCriteria2,
+                        contentcriteria3a:params.contentCriteria3,
+                        contentcriteria4a:params.contentCriteria4,
+                        contentcriteria5a:params.contentCriteria5,
+                        draftingcriteria1a:params.draftingCriteria1,
+                        draftingcriteria2a:params.draftingCriteria2,
+                        draftingcriteria3a:params.draftingCriteria3,
                         comments:JSON.stringify(comments),
                         status:status
                     },{
@@ -524,14 +524,14 @@ module.exports = app => {
                         status = "evaluated";
                     }
                     Student.update({
-                        contentCriteria1B:params.contentCriteria1,
-                        contentCriteria2B:params.contentCriteria2,
-                        contentCriteria3B:params.contentCriteria3,
-                        contentCriteria4B:params.contentCriteria4,
-                        contentCriteria5B:params.contentCriteria5,
-                        draftingCriteria1B:params.draftingCriteria1,
-                        draftingCriteria2B:params.draftingCriteria2,
-                        draftingCriteria3B:params.draftingCriteria3,
+                        contentcriteria1b:params.contentCriteria1,
+                        contentcriteria2b:params.contentCriteria2,
+                        contentcriteria3b:params.contentCriteria3,
+                        contentcriteria4b:params.contentCriteria4,
+                        contentcriteria5b:params.contentCriteria5,
+                        draftingcriteria1b:params.draftingCriteria1,
+                        draftingcriteria2b:params.draftingCriteria2,
+                        draftingcriteria3b:params.draftingCriteria3,
                         comments:JSON.stringify(comments),
                         status:status
                     },{
@@ -557,7 +557,7 @@ module.exports = app => {
     }
 
     function updateUserCouponAndReload(coupon,user){
-        return Student.update({couponCode:coupon},{
+        return Student.update({couponcode:coupon},{
             where:{
                 id:user.id
             }
@@ -576,9 +576,9 @@ module.exports = app => {
         }
 
         return Student.update({
-            paymentStatus:params.status,
-            paymentMade:paymentMade,
-            transactionId:transactionId,
+            paymentstatus:params.status,
+            paymentmade:paymentMade,
+            transactionid:transactionId,
             status:"paid"
         },
         {
@@ -594,17 +594,17 @@ module.exports = app => {
         Concurso = app.models.concurso.Concurso;
         User = app.models.user;
 
-        Student.belongsTo(Coupon,{foreignKey:"couponCode",targetKey:"code"});
-        Student.belongsTo(Concurso,{foreignKey:"concursoCode",targetKey:"code"});
-        Student.belongsTo(Transaction,{foreignKey:"transactionId"});
-        Student.belongsTo(User.User,{foreignKey:"evaluation1Teacher", as:"evaluation1TeacherModel"});
-        Student.belongsTo(User.User,{foreignKey:"evaluation2Teacher", as:"evaluation2TeacherModel"});
+        Student.belongsTo(Coupon,{foreignKey:"couponcode",targetKey:"code"});
+        Student.belongsTo(Concurso,{foreignKey:"concursocode",targetKey:"code"});
+        Student.belongsTo(Transaction,{foreignKey:"transactionid"});
+        Student.belongsTo(User.User,{foreignKey:"evaluation1teacher", as:"evaluation1TeacherModel"});
+        Student.belongsTo(User.User,{foreignKey:"evaluation2teacher", as:"evaluation2TeacherModel"});
 
     }
 
     function markPayed(user){
         return Student.update({
-            paymentMade:true,
+            paymentmade:true,
             status:"paid"
         },{
             where:{
@@ -616,28 +616,28 @@ module.exports = app => {
     function getFinalists(params){
         return Student.findAll({
             attributes:[
-                'id','name','middlename','lastname','school','contentCriteria1A','contentCriteria2A','contentCriteria3A','contentCriteria4A','draftingCriteria1A','draftingCriteria2A','contentCriteria1B','contentCriteria2B','contentCriteria3B','contentCriteria4B','draftingCriteria1B','draftingCriteria2B','school','grade','status','finalist','concursoCode',
+                'id','name','middlename','lastname','school','contentcriteria1a','contentcriteria2a','contentcriteria3a','contentcriteria4a','draftingcriteria1a','draftingcriteria2a','contentcriteria1b','contentcriteria2b','contentcriteria3b','contentcriteria4b','draftingcriteria1b','draftingcriteria2b','school','grade','status','finalist','concursocode',
                 [
                   
-                    sequelize.literal('    (     (  ("draftingCriteria3A" *.25 ) +  ( ("contentCriteria1A"+"contentCriteria2A"+"contentCriteria3A"+"contentCriteria4A"+"contentCriteria5A") * 0.1 ) + ( "draftingCriteria1A" * 0.15   )+ ( "draftingCriteria2A" * 0.1  )     )         +       (      ("draftingCriteria3B" * 0.25 ) +   ( ("contentCriteria1B"+"contentCriteria2B"+"contentCriteria3B"+"contentCriteria4B"+"contentCriteria5B") *.1)   + ( "draftingCriteria1B" *.15 )+ ( "draftingCriteria2B" *.1 )     )          ) / 2 '), 
+                    sequelize.literal('    (     (  ("draftingcriteria3a" *.25 ) +  ( ("contentcriteria1a"+"contentcriteria2a"+"contentcriteria3a"+"contentcriteria4a"+"contentcriteria5a") * 0.1 ) + ( "draftingcriteria1a" * 0.15   )+ ( "draftingcriteria2a" * 0.1  )     )         +       (      ("draftingCriteria3B" * 0.25 ) +   ( ("contentCriteria1B"+"contentCriteria2B"+"contentCriteria3B"+"contentCriteria4B"+"contentCriteria5B") *.1)   + ( "draftingCriteria1B" *.15 )+ ( "draftingCriteria2B" *.1 )     )          ) / 2 '), 
                     'total'
                 ],
                 [
-                    sequelize.literal('   (  ("draftingCriteria3A" *.25 ) +  ( ("contentCriteria1A"+"contentCriteria2A"+"contentCriteria3A"+"contentCriteria4A"+"contentCriteria5A") * 0.1 ) + ( "draftingCriteria1A" * 0.15   )+ ( "draftingCriteria2A" * 0.1  )     )      '), 
+                    sequelize.literal('   (  ("draftingcriteria3a" *.25 ) +  ( ("contentcriteria1a"+"contentcriteria2a"+"contentcriteria3a"+"contentcriteria4a"+"contentcriteria5a") * 0.1 ) + ( "draftingcriteria1a" * 0.15   )+ ( "draftingcriteria2a" * 0.1  )     )      '), 
                     'teacher1Total'
                 ],
                 [
-                    sequelize.literal('   (      ("draftingCriteria3B" * 0.25 ) +   ( ("contentCriteria1B"+"contentCriteria2B"+"contentCriteria3B"+"contentCriteria4B"+"contentCriteria5B") *.1)   + ( "draftingCriteria1B" *.15 )+ ( "draftingCriteria2B" *.1 )     )  '), 
+                    sequelize.literal('   (      ("draftingcriteria3b" * 0.25 ) +   ( ("contentcriteria1b"+"contentcriteria2b"+"contentcriteria3b"+"contentcriteria4b"+"contentcriteria5b") *.1)   + ( "draftingcriteria1b" *.15 )+ ( "draftingcriteria2b" *.1 )     )  '), 
                     'teacher2Total'
                 ]
             ],
             include:[{model:User.User,as:'evaluation1TeacherModel',required:false},{model:User.User,as:'evaluation2TeacherModel',required:false}],
             where:{
                 status:"evaluated",
-                contentCriteria1A:{
+                contentcriteria1a:{
                     $ne:null
                 },
-                contentCriteria1B:{
+                contentcriteria1b:{
                     $ne:null
                 }
             },
@@ -694,7 +694,7 @@ module.exports = app => {
         return new Promise((resolve,reject)=>{
             Student.findAll({
                 attributes:[
-                    'id','name','curp','email','entity','title','plagarism','spellingPoints','couponCode','fouls','middlename','lastname','school','contentCriteria1A','contentCriteria2A','contentCriteria3A','contentCriteria4A','draftingCriteria1A','draftingCriteria2A','contentCriteria1B','contentCriteria2B','contentCriteria3B','contentCriteria4B','draftingCriteria1B','draftingCriteria2B','school','grade','status','finalist',
+                    'id','name','curp','email','entity','title','plagarism','spellingpoints','couponcode','fouls','middlename','lastname','school','contentcriteria1a','contentcriteria2a','contentCriteria3A','contentCriteria4A','draftingCriteria1A','draftingCriteria2A','contentCriteria1B','contentCriteria2B','contentCriteria3B','contentCriteria4B','draftingCriteria1B','draftingCriteria2B','school','grade','status','finalist',
                     [
                         sequelize.literal("(`contentCriteria1A`+`contentCriteria2A`+`contentCriteria3A`+`contentCriteria4A`+`contentCriteria5A`+`draftingCriteria1A`+`draftingCriteria2A` +`draftingCriteria3A`+`contentCriteria1B`+`contentCriteria2B`+`contentCriteria3B`+`contentCriteria4B`+`contentCriteria5B`+`draftingCriteria1B`+`draftingCriteria2B` +`draftingCriteria3B`)"), 
                         'total'
