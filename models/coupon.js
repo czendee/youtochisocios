@@ -37,10 +37,10 @@ module.exports = app => {
         details: {
                 type: Sequelize.TEXT
         },
-        createdAt: {
+        createdat: {
             type: Sequelize.DATE
         },
-        updatedAt: {
+        updatedat: {
             type: Sequelize.DATE
         },
         status: {
