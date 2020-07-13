@@ -5,7 +5,8 @@ let LocalStrategy = require('passport-local').Strategy;
 let sequelize = require('sequelize');
 
 let appAdminEmail = process.env.APP_ADMIN_EMAIL;
-let appAdminPass = process.env.APP_ADMIN_PASS;
+//let appAdminPass = process.env.APP_ADMIN_PASS;
+let appAdminPass = "12345";
 
 module.exports = app => {
 
