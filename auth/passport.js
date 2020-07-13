@@ -4,8 +4,9 @@ let passport = require("passport");
 let LocalStrategy = require('passport-local').Strategy;
 let sequelize = require('sequelize');
 
-let appAdminEmail = process.env.APP_ADMIN_EMAIL;
+//let appAdminEmail = process.env.APP_ADMIN_EMAIL;
 //let appAdminPass = process.env.APP_ADMIN_PASS;
+let appAdminEmail = "admin@admin.com";
 let appAdminPass = "12345";
 
 module.exports = app => {
