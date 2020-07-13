@@ -23,10 +23,10 @@ module.exports = app => {
         password: {
             type: Sequelize.STRING
         },
-        createdAt: {
+        createdat: {
             type: Sequelize.DATE
         },
-        updatedAt: {
+        updatedat: {
             type: Sequelize.DATE
         },
         role: {
