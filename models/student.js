@@ -217,8 +217,8 @@ module.exports = app => {
             grade:data.grade,
             status:"registered",
             paymentMade:false,
-            couponCode:data.coupon,
-            concursoCode:data.concurso
+            couponcode:data.coupon,
+            concursocode:data.concurso
         })
     }
 
