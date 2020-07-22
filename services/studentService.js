@@ -40,7 +40,7 @@ module.exports = app => {
                                 if(coupons.length>0){
                                     console.log("TOCHI  new student, the coupon validation  step 3");
                                     var couponDetails = coupons[0];
-                                    if(couponDetails.concursoCode==data.concurso){
+                                    if(couponDetails.concursocode==data.concurso){
                                         console.log("TOCHI  new student, the coupon validation  step 4");
                                         if(couponDetails.grade==data.grade){
                                              console.log("TOCHI  new student, the coupon validation  step 5");
@@ -189,8 +189,8 @@ module.exports = app => {
         })
     }
 
-    function getCouponDetailsByCode(couponCode){
-        return Coupon.getCouponDetailsByCode(couponCode);
+    function getCouponDetailsByCode(couponcode){
+        return Coupon.getCouponDetailsByCode(couponcode);
     }
 
     function updateUserCouponAndReload(coupon,user){
@@ -198,8 +198,8 @@ module.exports = app => {
         
     }
     
-        function getConcursoDetailsByCode(concursoCode){
-        return Concurso.getConcursoDetailsByCode(concursoCode);
+        function getConcursoDetailsByCode(concursocode){
+        return Concurso.getConcursoDetailsByCode(concursocode);
     }
 
     function checkPaymentStatus(user){
