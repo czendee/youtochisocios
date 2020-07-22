@@ -46,7 +46,7 @@ module.exports = app => {
         status: {
                 type: Sequelize.STRING
         },
-        concursoCode:{
+        concursocode:{
             type:Sequelize.STRING
         }
     },
@@ -59,8 +59,8 @@ module.exports = app => {
         User = app.models.user.User;
         Student = app.models.student.Student;
         Concurso = app.models.concurso.Concurso;
-        Coupon.hasMany(Student,{foreignKey:"couponCode",sourceKey:"code"});
-        Coupon.belongsTo(Concurso,{foreignKey:"concursoCode",targetKey:"code"});
+        Coupon.hasMany(Student,{foreignKey:"couponcode",sourceKey:"code"});
+        Coupon.belongsTo(Concurso,{foreignKey:"concursocode",targetKey:"code"});
     }
 
     function getAllCoupons(data){
@@ -104,10 +104,10 @@ module.exports = app => {
 
     
    function findByConcurso(params ){
-       console.log("Tochi  model coupons - findByConcurso paso 1:"+params.concursoCode);
+       console.log("Tochi  model coupons - findByConcurso paso 1:"+params.concursocode);
         return Coupon.findAll(
             {
-                where:{concursoCode:params.concursoCode}}
+                where:{concursoCode:params.concursocode}}
             )
     }
 
