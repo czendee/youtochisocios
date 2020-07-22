@@ -24,7 +24,7 @@ CREATE SEQUENCE coupons_id_seq;
      count character varying(255) NULL,      
      name character varying(255) NULL,       
      percent integer NULL,                   
-     userId integer NULL,                    
+     userid integer NULL,                    
      details text NULL,                      
      createdat timestamp with time zone NULL,
      updatedat timestamp with time zone NULL,
@@ -124,7 +124,7 @@ CREATE SEQUENCE transactions_id_seq;
      cust_country character varying(255) NULL, 
      card_last_4 character varying(255) NULL,  
      card_owner character varying(255) NULL,   
-     studentId integer NULL                    
+     studentid integer NULL                    
  );        
 
 CREATE SEQUENCE users_id_seq;
