@@ -173,8 +173,8 @@ module.exports = app => {
             if(req.user.grade==3){
                 amount=150;
             }
-            if(req.user.couponCode){
-                studentController.getCouponDetailsByCode(req.user.couponCode).then(coupons=>{
+            if(req.user.couponcode){
+                studentController.getCouponDetailsByCode(req.user.couponcode).then(coupons=>{
                     if(coupons.length>0){
                         coupon=coupons[0];
                         amount = amount - (amount*coupon.percent/100);
