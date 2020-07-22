@@ -50,12 +50,12 @@ function couponsController($scope, Coupon, $stateParams, $window, AdminService, 
   }
 
 
-  function searchCouponConcurso(concursoCode){
+  function searchCouponConcurso(concursocode){
 
     console.log("TOCHI searchCouponConcurso  step 1");
     
     
-       Coupon.findCouponByConcurso(concursoCode).then(function(data){
+       Coupon.findCouponByConcurso(concursocode).then(function(data){
          console.log("TOCHI searchCouponConcurso  step 2");
          self.coupons = data.data;
       console.log("TOCHI searchCouponConcurso  step 3");
