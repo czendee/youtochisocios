@@ -31,7 +31,7 @@ module.exports = app => {
         grade:{
             type: Sequelize.INTEGER
         },
-        userId: {
+        userid: {
             type: Sequelize.INTEGER
         },
         details: {
@@ -72,8 +72,8 @@ module.exports = app => {
     }
 
  
-    function createCoupon(params,userId){
-        params.userId = userId;
+    function createCoupon(params,userid){
+        params.userid = userid;
         return Coupon.create(params);
     }
 
