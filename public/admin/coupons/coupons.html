@@ -6,8 +6,8 @@
         
         <div class="uk-width-1-1 uk-text-right"  >
             Challenges :
-            <select  ng-model="couponsController.searchcoupon.concursoCode">
-                 <option ng-repeat="coupon in couponsController.coupons  | orderBy : 'concursoCode' "   ng-if="coupon.concursoCode!= couponsController.coupons[$index - 1].concursoCode"  value="{{coupon.concursoCode}}">{{coupon.concursoCode}}</option>
+            <select  ng-model="couponsController.searchcoupon.concursocode">
+                 <option ng-repeat="coupon in couponsController.coupons  | orderBy : 'concursocode' "   ng-if="coupon.concursocode!= couponsController.coupons[$index - 1].concursocode"  value="{{coupon.concursocode}}">{{coupon.concursocode}}</option>
              </select>
 
         </div>        
@@ -28,11 +28,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="coupon in couponsController.coupons" ng-show=" coupon.concursoCode == couponsController.searchcoupon.concursoCode  " >
+                    <tr ng-repeat="coupon in couponsController.coupons" ng-show=" coupon.concursocode == couponsController.searchcoupon.concursocode  " >
                         <td >{{coupon.id}}</td>
                         <td>{{coupon.code}}</td>
                         <td>{{coupon.count}}</td>
-                        <td  ng-show=" coupon.concursoCode == couponsController.searchcoupon.concursoCode  ">{{coupon.percent}}</td>
+                        <td  ng-show=" coupon.concursocode == couponsController.searchcoupon.concursocode  ">{{coupon.percent}}</td>
                         <td>{{coupon.grade}}</td>
                         <td>{{coupon.concursoCode}} </td>
                         <td>{{coupon.details}}</td>
@@ -63,7 +63,7 @@
                 </div>
                 
                 <div>
-                        <select  name="concursoCode" ng-model="couponsController.newcoupon.concursoCode">                 
+                        <select  name="concursocode" ng-model="couponsController.newcoupon.concursocode">                 
                                  <option ng-repeat="concurso in couponsController.concursos  "  value="{{concurso.code}}">{{concurso.name}}</option>                                  
                         </select>
                  </div>
@@ -95,7 +95,7 @@
                         <option value="3">Grado 3</option>
                     </select>
                 </div>
-                <div><input type="text" name="concursoCode" placeholder="Concurso Code" class="uk-input" ng-model="couponsController.editcoupon.concursoCode" required></div>
+                <div><input type="text" name="concursocode" placeholder="Concurso Code" class="uk-input" ng-model="couponsController.editcoupon.concursocode" required></div>
                 <div class="uk-margin">
                     <button class="uk-modal-close uk-button" type="button">Cancel</button>
                     <button class="uk-button uk-button-primary">
