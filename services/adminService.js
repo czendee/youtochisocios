@@ -54,7 +54,7 @@ module.exports = app => {
     }
     
     function findCouponByConcurso(params){
-        console.log("Tochi  adminService findCouponByConcurso paso 1"+ params.concursoCode);
+        console.log("Tochi  adminService findCouponByConcurso paso 1"+ params.concursocode);
                     
         return Coupon.findByConcurso(params);
     }
