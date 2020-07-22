@@ -92,9 +92,9 @@ module.exports = app => {
         }) 
     }
 
-    function updateEssay(data, userId){
+    function updateEssay(data, userid){
         return new Promise((resolve,reject)=>{
-            Student.updateEssay(data, userId).then(data=>{
+            Student.updateEssay(data, userid).then(data=>{
                 return resolve(data);
             }).catch(err=>{
                 return reject(err);
