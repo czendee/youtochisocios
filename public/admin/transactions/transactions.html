@@ -5,9 +5,9 @@
         
         <div class="uk-width-1-1 uk-text-right">
             Challenges :
-           <select  ng-model="transactionsController.searchcoupon.concursoCode">
+           <select  ng-model="transactionsController.searchcoupon.concursocode">
                  
-                 <option ng-repeat="transaction in transactionsController.transactions  | orderBy : 'concursoCode' "   ng-if="transaction.student.concursoCode != transactionsController.transactions[$index - 1].student.concursoCode"  value="{{transaction.student.concursoCode}}">{{transaction.student.concursoCode}}</option>
+                 <option ng-repeat="transaction in transactionsController.transactions  | orderBy : 'concursocode' "   ng-if="transaction.student.concursocode != transactionsController.transactions[$index - 1].student.concursocode"  value="{{transaction.student.concursocode}}">{{transaction.student.concursocode}}</option>
              </select>
             <!--   <button class="uk-button uk-button-primary"  ng-click=" " type="button">FILTRAR</button>   -->
         </div> 
@@ -28,14 +28,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="transaction in transactionsController.transactions"  ng-if ="transaction.student.concursoCode == transactionsController.searchcoupon.concursoCode">
+                    <tr ng-repeat="transaction in transactionsController.transactions"  ng-if ="transaction.student.concursocode == transactionsController.searchcoupon.concursocode">
                         <td>{{transaction.transactionId}}</td>
                         <td>{{transaction.student.name}}</td>
                         <td>{{transaction.total}}</td>
                         <td>{{transaction.student.couponCode}}</td>
                         <td>{{transaction.student.coupon.percent}}%</td>
                         <td>{{transaction.status}}</td>
-                        <td> {transaction.student.concursoCode}}   </td>
+                        <td> {transaction.student.concursocode}}   </td>
                         <td>{{transaction.event}}</td>
                     </tr>
                 </tbody>
