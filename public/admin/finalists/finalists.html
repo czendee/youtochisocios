@@ -6,9 +6,9 @@
 
         <div class="uk-width-1-1 uk-text-right">
              Challenges :
-           <select  ng-model="finalistsController.searchcoupon.concursoCode">
+           <select  ng-model="finalistsController.searchcoupon.concursocode">
                  
-                 <option ng-repeat="student in finalistsController.finalists   | orderBy : 'concursoCode' "  ng-if="student.concursoCode!= finalistsController.finalists[$index - 1].concursoCode"   value="{{student.concursoCode}}">{{student.concursoCode}}</option>
+                 <option ng-repeat="student in finalistsController.finalists   | orderBy : 'concursocode' "  ng-if="student.concursocode!= finalistsController.finalists[$index - 1].concursocode"   value="{{student.concursocode}}">{{student.concursocode}}</option>
              </select>
            <!--  <button class="uk-button uk-button-primary"  ng-click=" " type="button">FILTRAR</button>  -->
         </div> 
@@ -30,7 +30,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="student in finalistsController.finalists"  ng-if ="student.concursoCode == finalistsController.searchcoupon.concursoCode">
+                    <tr ng-repeat="student in finalistsController.finalists"  ng-if ="student.concursocode == finalistsController.searchcoupon.concursocode">
                         <td>{{student.name}} {{student.middlename}} {{student.lastname}}</td>
                         <td>{{student.school}}</td>
                         <td>{{student.evaluation1TeacherModel.name}}</td>
@@ -38,7 +38,7 @@
                         <td>{{student.evaluation2TeacherModel.name}}</td>
                         <td>{{student.teacher2Total || 0}}</td>
                         <td>{{student.total}}</td>
-                        <td>{{student.concursoCode}} </td>
+                        <td>{{student.concursocode}} </td>
                         <td>
                             <span ng-if="student.finalist==false">
                                 Rechazado
