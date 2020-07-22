@@ -30,7 +30,7 @@ CREATE SEQUENCE coupons_id_seq;
      updatedat timestamp with time zone NULL,
      status character varying(255) NULL,     
      grade integer NULL,                     
-     concursoCode character varying(255) NULL,
+     concursocode character varying(255) NULL,
   primary key(id)
  ); 
 
@@ -88,10 +88,10 @@ CREATE TABLE students
      paymentMade boolean NULL,                 
      paymentStatus character varying(255) NULL,
      transactionId integer NULL,               
-     couponCode character varying(255) NULL,   
+     couponcode character varying(255) NULL,   
      fouls integer NULL,                       
      finalist boolean NULL,                    
-     concursoCode character varying(255) NULL,
+     concursocode character varying(255) NULL,
   primary key(id)   
  );                
 
