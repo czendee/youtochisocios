@@ -49,7 +49,7 @@ angular.module('admin')
           url:"/admin/coupon/searchconcurso",
           method:'POST',
           params: {
-            concursoCode:data
+            concursocode:data
           }          
         })
       }      ,
