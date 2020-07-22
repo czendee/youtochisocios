@@ -43,7 +43,7 @@ module.exports = app => {
        console.log("Concursos -------------------------------------- :)");
         
         Student = app.models.student.Student;
-        Concurso.hasMany(Student,{foreignKey:"concursoCode",sourceKey:"code"});
+        Concurso.hasMany(Student,{foreignKey:"concursocode",sourceKey:"code"});
     }
     function create(params){
         return Concurso.create(params);
