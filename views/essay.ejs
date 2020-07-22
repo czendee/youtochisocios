@@ -118,10 +118,10 @@
                         <%students.forEach(function(student){   
                                     if (student.email==user.email) {                                    
                             %>
-                                     <%=student.name%> - <%=student.concursoCode%>
+                                     <%=student.name%> - <%=student.concursocode%>
                                      
                                     <%concursos.forEach(function(concurso){
-                                        if (student.concursoCode==concurso.code){
+                                        if (student.concursocode==concurso.code){
                                     %>
                                         <p><%=concurso.name%>   reglas: <%=concurso.textoregla%></p>
                                     <%
