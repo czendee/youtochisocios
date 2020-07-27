@@ -1,5 +1,5 @@
 ---mysql
-
+ 
 CREATE SEQUENCE concursos_id_seq;
 
  CREATE TABLE socioconcursos                      
