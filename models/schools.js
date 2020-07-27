@@ -24,7 +24,7 @@ module.exports = app => {
         }
     },
     {
-        tableName: "schools",
+        tableName: "socioschools",
         timestamps: true
     });
 
