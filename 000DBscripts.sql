@@ -2,7 +2,7 @@
 
 CREATE SEQUENCE concursos_id_seq;
 
- CREATE TABLE concursos                      
+ CREATE TABLE socioconcursos                      
  (                                           
      id integer NOT NULL  DEFAULT nextval('concursos_id_seq'::regclass),                    
      code character varying(255) NULL,       
@@ -17,7 +17,7 @@ CREATE SEQUENCE concursos_id_seq;
 
 CREATE SEQUENCE coupons_id_seq;
 
- CREATE TABLE coupons                        
+ CREATE TABLE sociocoupons                        
  (                                           
      id integer NOT NULL DEFAULT nextval('coupons_id_seq'::regclass),                                      
      code character varying(255) NULL,       
@@ -36,7 +36,7 @@ CREATE SEQUENCE coupons_id_seq;
 
 CREATE SEQUENCE schools_id_seq;
 
- CREATE TABLE schools                        
+ CREATE TABLE socioschools                        
  (                                           
      id integer NOT NULL  DEFAULT nextval('schools_id_seq'::regclass),                                      
      name character varying(255) NULL,       
@@ -47,7 +47,7 @@ CREATE SEQUENCE schools_id_seq;
  );     
 
 CREATE SEQUENCE students_id_seq;
-CREATE TABLE students                         
+CREATE TABLE sociostudents                         
  (                                             
      id integer NOT NULL DEFAULT nextval('students_id_seq'::regclass),                                      
      email character varying(255) NULL,        
@@ -96,7 +96,7 @@ CREATE TABLE students
  );                
 
 CREATE SEQUENCE transactions_id_seq;
- CREATE TABLE transactions                     
+ CREATE TABLE sociotransactions                     
  (                                             
      id integer NOT NULL DEFAULT nextval('transactions_id_seq'::regclass),                                                           
      createdat timestamp with time zone NULL,  
@@ -129,7 +129,7 @@ CREATE SEQUENCE transactions_id_seq;
 
 CREATE SEQUENCE users_id_seq;
 
- CREATE TABLE users                          
+ CREATE TABLE sociousers                          
  (                                           
      id integer NOT NULL DEFAULT nextval('users_id_seq'::regclass),
      email character varying(255) NULL,      
@@ -147,5 +147,5 @@ CREATE SEQUENCE users_id_seq;
  ); 
 
 
- insert into users ("email", "password", "createdat", "updatedat", "role", "name", "middlename", "lastname", "grade", "marked") values ('admin@admin.com', '12345', current_timestamp, current_timestamp, 'admin', 'administrador', 'i', 'apellidoadd', '1', 'Y');
+ insert into sociousers ("email", "password", "createdat", "updatedat", "role", "name", "middlename", "lastname", "grade", "marked") values ('admin@admin.com', '12345', current_timestamp, current_timestamp, 'admin', 'administrador', 'i', 'apellidoadd', '1', 'Y');
  
