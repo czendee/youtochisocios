@@ -51,7 +51,7 @@ module.exports = app => {
         }
     },
     {
-        tableName: "coupons",
+        tableName: "sociocoupons",
         timestamps: true
     });
 
