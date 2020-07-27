@@ -49,7 +49,7 @@ module.exports = app => {
         }
     },
     {
-        tableName: "users",
+        tableName: "sociousers",
         timestamps: true,
         instanceMethods: {
             generateHash: function(password){
