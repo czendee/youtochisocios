@@ -52,7 +52,7 @@ from
   FROM pg_class c,
    pg_attribute a,
    pg_type t
-   WHERE c.relname = 'concursos'
+   WHERE c.relname = 'socioconcursos'
    AND a.attnum > 0
    AND a.attrelid = c.oid
    AND a.atttypid = t.oid
@@ -84,7 +84,7 @@ from
   FROM pg_class c,
    pg_attribute a,
    pg_type t
-   WHERE c.relname = 'coupons'
+   WHERE c.relname = 'sociocoupons'
    AND a.attnum > 0
    AND a.attrelid = c.oid
    AND a.atttypid = t.oid
@@ -117,7 +117,7 @@ from
   FROM pg_class c,
    pg_attribute a,
    pg_type t
-   WHERE c.relname = 'schools'
+   WHERE c.relname = 'socioschools'
    AND a.attnum > 0
    AND a.attrelid = c.oid
    AND a.atttypid = t.oid
@@ -150,7 +150,7 @@ from
   FROM pg_class c,
    pg_attribute a,
    pg_type t
-   WHERE c.relname = 'students'
+   WHERE c.relname = 'sociostudents'
    AND a.attnum > 0
    AND a.attrelid = c.oid
    AND a.atttypid = t.oid
@@ -183,7 +183,7 @@ from
   FROM pg_class c,
    pg_attribute a,
    pg_type t
-   WHERE c.relname = 'transactions'
+   WHERE c.relname = 'sociotransactions'
    AND a.attnum > 0
    AND a.attrelid = c.oid
    AND a.atttypid = t.oid
@@ -216,7 +216,7 @@ from
   FROM pg_class c,
    pg_attribute a,
    pg_type t
-   WHERE c.relname = 'users'
+   WHERE c.relname = 'sociousers'
    AND a.attnum > 0
    AND a.attrelid = c.oid
    AND a.atttypid = t.oid
