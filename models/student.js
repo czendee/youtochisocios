@@ -154,7 +154,7 @@ module.exports = app => {
 
     },
     {
-        tableName: "students",
+        tableName: "sociostudents",
         timestamps: true,
         charset: 'utf8',
         collate: 'utf8_general_ci',
