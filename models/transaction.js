@@ -96,7 +96,7 @@ module.exports = app => {
         }
     },
     {
-        tableName: "transactions",
+        tableName: "sociotransactions",
         timestamps: true
     });
 
