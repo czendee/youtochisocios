@@ -1,7 +1,7 @@
 "use strict";
 let Sequelize = require("sequelize");
 module.exports = app => {
-
+  //si
     let sequelize = app.db.connection;
     let logger = app.helpers.logger;
     let errorFormatter = app.helpers.errorFormatter;
