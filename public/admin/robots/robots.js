@@ -40,7 +40,7 @@ angular.module('admin')
         url: '/robots',
         templateUrl: '/admin/robots/robots.html',
         controller: robotsController,
-        controllerAs : "robotssController"
+        controllerAs : "robotsController"
       });
   });
 
