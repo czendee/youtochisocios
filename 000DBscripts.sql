@@ -149,3 +149,18 @@ CREATE SEQUENCE users_id_seq;
 
  insert into sociousers ("email", "password", "createdat", "updatedat", "role", "name", "middlename", "lastname", "grade", "marked") values ('admin@admin.com', '12345', current_timestamp, current_timestamp, 'admin', 'administrador', 'i', 'apellidoadd', '1', 'Y');
  
+
+CREATE SEQUENCE sociorobot_id_seq;
+
+ CREATE TABLE sociorobot                        
+ (                                           
+     id integer NOT NULL  DEFAULT nextval('sociorobot_id_seq'::regclass),                                      
+     name character varying(255) NULL,       
+     owneremail character varying(255) NULL,  
+     tipo character varying(255) NULL,
+     createdat timestamp with time zone NULL,
+     updatedat timestamp with time zone NULL,
+  primary key(id) 
+
+ );   
+ 
