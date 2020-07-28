@@ -1,7 +1,7 @@
 "use strict";
 (function(){
 
-function robotsController($scope, School, notify) {
+function robotsController($scope, Robot, notify) {
   console.log("working in robots");
   var self = this;
   self.schools = [];
@@ -36,7 +36,7 @@ function robotsController($scope, School, notify) {
 angular.module('admin')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('schools', {
+      .state('robots', {
         url: '/robots',
         templateUrl: '/admin/robots/robots.html',
         controller: robotsController,
