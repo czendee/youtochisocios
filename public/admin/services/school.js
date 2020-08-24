@@ -9,7 +9,7 @@ angular.module('admin')
           console.log('despliega paso 1');
           return $http({
 //            url: '/admin/schools/all',
-            url:'https://peaceful-retreat-91246.herokuapp.com/api/robots',
+            url:'https://peaceful-retreat-91246.herokuapp.com/api/robots101',
             method:'GET',
             data:{}
           });
@@ -18,7 +18,7 @@ angular.module('admin')
         console.log('despliega paso 2');
         return $http({
 //          url:"/admin/school/create",
-            url:'https://peaceful-retreat-91246.herokuapp.com/api/robots',          
+            url:'https://peaceful-retreat-91246.herokuapp.com/api/robots101',          
           method:'POST',
           data:data
         })
