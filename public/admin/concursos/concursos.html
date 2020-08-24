@@ -8,18 +8,20 @@
                 <thead>
                     <tr>
                         <th>id</th>
-                        <th>Codigo</th>
+                        <th>Numero</th>
                         <th>Nombre</th>
-                        <th>Tipo</th>
+                        <th>Ejecutivvo</th>
                         <th>Acciones</th>
+                        <th>Estatus</th>                        
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="concurso in concursosController.concursos">
                         <td>{{concurso.id}}</td>
-                        <td>{{concurso.code}} </td>
+                        <td>{{concurso.numero}} </td>
                         <td>{{concurso.name}} </td>
-                        <td>{{concurso.tipo}} </td>
+                        <td>{{concurso.ejecutivo}} </td>
+                        <td>{{concurso.status}} </td>                        
                         <td><button class="uk-button uk-button-warning" uk-toggle="target: #editConcurso" ng-click="concursosController.editConcurso(concurso);" style="margin-right: 5px;">Edit</button><button class="uk-button uk-button-danger" ng-click="concursosController.deleteConcurso(concurso, $index)">eliminar</button></td>
                     </tr>
                 </tbody>
@@ -34,16 +36,10 @@
         <h2 class="uk-modal-title">Agregar Challenge</h2>
         <div class="uk-width-1-1 uk-text-center">
             <form class="uk-form" actions="/admin/concurso/create" method="POST" ng-submit="concursosController.addConcurso()">
-                <div><input type="text" name="code" placeholder="Codigo Challenge" class="uk-input" ng-model="concursosController.newconcurso.code" required></div>
+                <div><input type="text" name="numero" placeholder="Codigo Challenge" class="uk-input" ng-model="concursosController.newconcurso.numero" required></div>
                 <div><input type="text" name="name" placeholder="Nombre Challenge" class="uk-input" ng-model="concursosController.newconcurso.name" required></div>
+                <div><input type="text" name="ejecutivo" placeholder="Nombre Ejecutivo" class="uk-input" ng-model="concursosController.newconcurso.ejecutivo" required></div>
          
-                <div>
-                    <select class="uk-input" name="tipo" ng-model="concursosController.newconcurso.tipo" required>
-                        <option value="ENSAYO">ENSAYO</option>
-                        <option value="CUENTO">CUENTO</option>
-                        <option value="RESEÑA">RESEÑA</option>
-                        <option value="ARTÍCULO">ARTÍCULO</option>
-                    </select>
                 </div>
                 
                 <div><input type="text" name="textoregla" placeholder="Reglas del Challenge" class="uk-input" ng-model="concursosController.newconcurso.textoregla" required></div>
