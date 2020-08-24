@@ -6,6 +6,7 @@ angular.module('admin')
     var service = {
 
       getAll: function(){
+          console.log('despliega paso 1');
           return $http({
 //            url: '/admin/schools/all',
             url:'http://peaceful-retreat-91246.herokuapp.com/api/robots',
@@ -14,6 +15,7 @@ angular.module('admin')
           });
       },
       create: function(data){
+        console.log('despliega paso 2');
         return $http({
 //          url:"/admin/school/create",
             url:'http://peaceful-retreat-91246.herokuapp.com/api/robots',          
