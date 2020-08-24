@@ -8,7 +8,7 @@ angular.module('admin')
       getAll: function(){
           console.log('despliega paso 1');
           return $http({
-//            url: '/admin/schools/all',
+////            url: '/admin/schools/all',
             url:'https://peaceful-retreat-91246.herokuapp.com/api/robots101',
             method:'GET',
             data:{}
