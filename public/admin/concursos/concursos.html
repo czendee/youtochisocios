@@ -1,7 +1,7 @@
 <div class="container teachers" style="padding:30px">
     <div class="uk-grid" uk-grid>
         <div class="uk-width-1-1 uk-text-right">
-            <button class="uk-button uk-button-primary" uk-toggle="target: #addConcurso" ng-click="concursosController.newconcurso.code=''; concursosController.newconcurso.name=''; concursosController.newconcurso.tipo='';concursosController.newconcurso.textoregla='';" type="button">+ AGREGAR CHALLENGE</button>
+            <button class="uk-button uk-button-primary" uk-toggle="target: #addConcurso" ng-click="concursosController.newconcurso.code=''; concursosController.newconcurso.name=''; concursosController.newconcurso.tipo='';concursosController.newconcurso.textoregla='';" type="button">+ AGREGAR DESCUENTO</button>
         </div>
         <div class="uk-width-1-1">
             <table class="uk-table">
@@ -33,7 +33,7 @@
 
 <div id="addConcurso" uk-modal>
     <div class="uk-modal-dialog uk-modal-body">
-        <h2 class="uk-modal-title">Agregar Challenge</h2>
+        <h2 class="uk-modal-title">Agregar Descuentos</h2>
         <div class="uk-width-1-1 uk-text-center">
             <form class="uk-form" actions="/admin/concurso/create" method="POST" ng-submit="concursosController.addConcurso()">
                 <div><input type="text" name="numero" placeholder="Codigo Challenge" class="uk-input" ng-model="concursosController.newconcurso.numero" required></div>
@@ -54,7 +54,7 @@
 
 <div id="editConcurso" uk-modal>
     <div class="uk-modal-dialog uk-modal-body">
-        <h2 class="uk-modal-title">Editar concurso</h2>
+        <h2 class="uk-modal-title">Editar descuento</h2>
         <div class="uk-width-1-1 uk-text-center">
             <form class="uk-form" actions="/admin/concurso/edit" method="POST" ng-submit="concursosController.saveEditConcurso()">               
                 <div><input type="text" name="name" placeholder="Nombre" class="uk-input" ng-model="concursosController.editconcurso.name" required></div>                
