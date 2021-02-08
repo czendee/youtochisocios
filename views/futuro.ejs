@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Youtochi | Challenges Competition </title>
+    <%include includes/header.ejs%>
+</head>
+<body>
+    <div class="main">
+        <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+            <div class="uk-navbar-left">
+                <a class="uk-navbar-item uk-logo" href="/admin/dashboard/"><img src="/images/logochallenge.png"/></a>
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href=""></a></li>
+                    <li class="uk-parent"><a href=""></a></li>
+                    <li><a href=""></a></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href="#login" uk-toggle><button class="uk-button uk-button-primary">INICIAR SESION</button></a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container basic uk-text-center admin">
+            <h1> Bienvenidos a la sección de administrador</h1>
+            <br />
+            
+            <br />
+            <br />
+           
+        </div>
+        
+        
+    </div>
+
+    <!-- This is the modal -->
+    <div id="login" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <h2 class="uk-modal-title">INICIAR SESIÓN</h2>
+            <form id="loginForm" action="/admin/login" method="POST" class="">
+                <div class="uk-fieldset uk-grid-small">                            
+                    
+                    <div class="uk-margin">
+                        <input class="uk-input" type="email" placeholder="Email" name="email" required>
+                    </div>
+                    
+                    <div class="uk-margin">
+                        <input class="uk-input" type="password" placeholder="Password" name="password" required>
+                    </div>
+                
+                </div>
+                <p class="uk-text-center">
+                    <button class="uk-button uk-button-default uk-modal-close" type="button">Cancelar</button>
+                    <button class="uk-button uk-button-primary" type="submit">Enviar</button>
+                </p>
+            </form>
+        </div>
+    </div>
+    <% include includes/footer.ejs %>
+</body>
+</html>
