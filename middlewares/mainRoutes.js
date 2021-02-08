@@ -12,6 +12,8 @@ module.exports = app => {
 
 
     app.use("/admin", app.routes.admin);
+    
+    app.use("/futuro", app.routes.admin);
 
 
 
