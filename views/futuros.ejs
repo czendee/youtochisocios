@@ -10,7 +10,12 @@
           #draggable { width: 150px; height: 150px; padding: 0.5em; }
   </style>
      <script>
-        alert("si");
+        alert("sii");
+        
+          $( function() {
+    $( "#draggable" ).draggable();
+  } );
+  
        $(function(){
           $("#postIt").draggable({
            handle:  '.topBar',
