@@ -21,7 +21,7 @@ module.exports = app => {
     app.get("/", (req, res, next) => {
         console.log("tochi 002: initial \ page   1 initial");
         if(req.user){
-            console.log("tochi 002: essay \ page   2.2");
+            console.log("tochi 002: essay \   page   2.2");
             res.redirect("/essay");
            
         }
