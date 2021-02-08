@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Youtochi | Challenges Competition </title>
+    <%include includes/header.ejs%>
+</head>
+<style>
+@import url(https://fonts.googleapis.com/css?family=Lato);
+body{
+  background-color:#ecf0f1;
+  overflow:hidden;
+}
+.topBar{
+  z-index:1;
+  position:absolute;
+  width:300px;
+  height:40px;
+  background-color:#9a9aff;
+}
+.form{
+  margin-top:40px;
+  position:absolute;
+  width:320x;
+  height:360px;
+  background-color:#b2b2ff;
+}
+.textAria{
+  position:absolute;
+  border-color:red;
+  width:180px;
+  height:140px;
+  position:absolute;
+  margin:10px;
+  font-family: 'Lato', sans-serif;
+  overflow:hide;
+}
+.textAria:focus{
+  outline: 0;
+}
+</style>
+
+<javascript>
+$(function(){
+  $("#postIt").draggable({
+    handle:  '.topBar',
+    }); 
+});
+</javascript>
+<body>
+    <div class="main">
+        <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+            <div class="uk-navbar-left">
+                <a class="uk-navbar-item uk-logo" href="/admin/dashboard/"><img src="/images/logochallenge.png"/></a>
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href=""></a></li>
+                    <li class="uk-parent"><a href=""></a></li>
+                    <li><a href=""></a></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href="#login" uk-toggle><button class="uk-button uk-button-primary">COMENZAR SESION</button></a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container basic uk-text-center admin">
+            <h1> Bienvenidos a la sección de futuro</h1>
+            <br />
+            <div id="postIt">
+  <div class=topBar></div>
+  <div class=form>
+    <iframe src="https://youtochisocio.herokuapp.com/admin" title="ww"></iframe>
+    <div contenteditable class=textAria>
+      Hello, <b>Edit Me First</b> Then Drag & Drop me.
+    </div>
+  </div>
+</div>
+<h1> Sección de futuro</h1>
+            <br />
+            <br />
+           
+        </div>
+        
+        
+    </div>
+
+    <!-- This is the modal -->
+    <div id="login" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <h2 class="uk-modal-title">INICIAR SESIÓN</h2>
+            <form id="loginForm" action="/admin/login" method="POST" class="">
+                <div class="uk-fieldset uk-grid-small">                            
+                    
+                    <div class="uk-margin">
+                        <input class="uk-input" type="email" placeholder="Email" name="email" required>
+                    </div>
+                    
+                    <div class="uk-margin">
+                        <input class="uk-input" type="password" placeholder="Password" name="password" required>
+                    </div>
+                
+                </div>
+                <p class="uk-text-center">
+                    <button class="uk-button uk-button-default uk-modal-close" type="button">Cancelar</button>
+                    <button class="uk-button uk-button-primary" type="submit">Enviar</button>
+                </p>
+            </form>
+        </div>
+    </div>
+    <% include includes/footer.ejs %>
+</body>
+</html>
