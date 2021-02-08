@@ -19,9 +19,3 @@ module.exports = app => {
     
     return router;
 };
-
-$(function(){
-  $("#postIt").draggable({
-    handle:  '.topBar',
-    }); 
-});
