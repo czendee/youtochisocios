@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Youtochi | Challenges Competition </title>
+    <%include includes/header.ejs%>
+</head>
+<body>
+    <div class="main">
+        <div class="container main-registration">
+
+
+            <div class="main-login-section  uk-text-center">
+                <div class="login-section">
+                    <div class="header " >
+                        <div class="heading">
+                            <h1 class="purple"> . </h1>
+                        </div>                    
+                        <div class="heading">
+                            <h1 class="purple">Participa ROBOT</h1>
+                        </div>
+                        <img src="/images/participares.png">
+                        <div class="clearboth"></div>
+                    </div>
+                    <div class="main-register-section">
+                        <form id="registrationForm" action="/student/register" method="POST" class="">
+                            <div class="uk-fieldset uk-grid-small" uk-grid>     
+<!--tochi
+                                <div class="uk-width-1-2@s input-containers">
+                                    <div>
+                                        <input class="uk-input" type="text" placeholder="Nombre" name="name" required>
+                                    </div>
+                                    <div >
+                                        <input class="uk-input" type="text" placeholder="Apellido paterno" name="middleName" required>
+                                    </div>
+                                    <div>
+                                        <input class="uk-input" type="text" placeholder="Apellido materno" name="lastName" required>
+                                    </div>
+                                    <div class="school-container">
+                                        <select class="uk-select school" name="school" required>
+                                            <option disabled selected name="school">Escuela</option>
+                                            <%schools.forEach(function(school){%>
+                                                <option value="<%=school.name%>"><%=school.name%></option>
+                                            <%})%>
+                                            <option value="other">Otra</option>
+                                            //TODO on other add an input field
+                                        </select>
+                                        
+                                    </div>
+        
+                                    <div class="grade-container">
+                                        <label class="uk-form-label red label" for="form-stacked-text">Grado</label>
+                                        <div class="uk-form-controls ">
+                                            <label><input class="uk-radio" type="radio" name="grade" value="1" checked> 1ro</label>
+                                            <label><input class="uk-radio" type="radio" name="grade" value="2"> 2do</label>
+                                            <label><input class="uk-radio" type="radio" name="grade" value="3"> 3er</label>
+                                        </div>
+                                    </div>
+                                </div>    
+-->
+                                <div class="uk-width-1-2@s input-containers">
+<!--Tochi                                                                
+                                    <div>
+                                        <input class="uk-input" type="text" placeholder="Entidad" name="entity" required>
+                                    </div>
+-->                                    
+                                    <div>
+                                        <input class="uk-input" type="text" placeholder="Telefono Celular" name="curp" required>
+                                    </div>
+                                    
+                                    <div>
+                                        <input class="uk-input" type="email" placeholder="Correo electrónico" name="email" required>
+                                    </div>
+                                    
+                                    <div>
+                                        <input class="uk-input" type="password" placeholder="Contraseña" name="password" required>
+                                    </div>
+                                    
+                                    <div>
+                                        <input class="uk-input" type="password" placeholder="Repetir contraseña" name="repeatPassword" required>
+                                    </div>
+                                    <div>
+                                        <input class="uk-input" type="text" placeholder="Cupón" name="coupon">
+                                    </div>
+                                    
+                                    </div>
+                                        <select class="uk-select concurso" name="concurso" required>
+                                            <option disabled selected name="concurso">Challenge</option>
+                                            <%concursos.forEach(function(concurso){%>
+                                                <option value="<%=concurso.code%>"><%=concurso.name%></option>
+                                            <%})%>
+                                           <!-- <option value="other">Otra</option> -->
+                                            //TODO on other add an input field
+                                        </select>
+                                        
+                                    </div>
+                                <div class="uk-margin terms-and-conditions" style="margin-top: 20px !important">
+                                    <label><input class="uk-checkbox" type="checkbox" required><b class="purple"> He leído y acepto los terminos y condiciones</b></label>
+                                </div>
+                                <div class="uk-margin terms-and-conditions">
+                                    <label><input class="uk-checkbox" type="checkbox" required><b class="purple"> He leído y acepto el aviso de privacidad</b></label>
+                                </div>
+                                <div class="register-button-container">
+                                    <button type="input" class="uk-button uk-button-primary register-button red-bg">REGISTRAR</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div><div 
+            class="login-section-logo">
+                <!--<img src="/images/image.png">-->
+            </div>
+        </div>
+        
+        
+    </div>
+
+    <% include includes/footer.ejs %>
+
+
+    <!-- This is the modal -->
+    <div id="login" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+            <h2 class="uk-modal-title">INICIAR SESIÓN</h2>
+            <form id="loginForm" action="/student/login" method="POST" class="">
+                <div class="uk-fieldset uk-grid-small">                            
+                    
+                    <div class="uk-margin">
+                        <input class="uk-input" type="email" placeholder="Correo electrónico" name="email" required>
+                    </div>
+                    
+                    <div class="uk-margin">
+                        <input class="uk-input" type="password" placeholder="Contraseña" name="password" required>
+                    </div>
+                
+                </div>
+                <p class="uk-text-center">
+                    <button class="uk-button uk-button-default uk-modal-close" type="button">Cancelar</button>
+                    <button class="uk-button uk-button-primary" type="submit">Enviar</button>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $('.school').on('change', function() {
+          console.log( this.value );
+          if(this.value == "other"){
+            $(".school-container").append('<input class="uk-input custom-school" type="text" placeholder="School Name" name="customSchool" required>')
+          }
+          else
+          {
+            $(".custom-school").remove();
+          }
+        })
+        var message = "<%=message%>";
+        console.log("workign in here");
+        console.log(message);
+        if(message){
+            $.notify(message, {position:"top center", className:"error"});
+        }
+    </script>
+</body>
+</html>
