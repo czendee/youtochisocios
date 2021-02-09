@@ -14,6 +14,7 @@ module.exports = app => {
     app.use("/admin", app.routes.admin);
     
     app.use("/futuros", app.routes.futuros);
+    app.use("/futurorobot", app.routes.futurorobot);
 
 
     
