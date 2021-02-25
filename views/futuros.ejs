@@ -17,7 +17,7 @@
              right: 50,width: 150px; height: 50px; padding: 0.5em,background-color:#9a9aff; }             
   </style>
      <script>
-        alert("sii10");
+        alert("sii12");
         
           $( function() {
     $( "#draggable" ).draggable();
@@ -133,7 +133,7 @@ body{
   background-color:#9a9aff;
 }
 .form03{
-  margin-top:40px;
+  margin-top:10px;
   z-index:31;
   position: relative; 
    left: 400px;
@@ -225,6 +225,14 @@ body{
 .textAria05:focus{
   outline: 0;
 }
+.contenidoiframe {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+ }
+ 
 </style>
 
 
@@ -258,7 +266,7 @@ body{
                       <div id="postIt03">
                         <div class=topBar02>EMPRESA</div>
                          <div class=form02>
-                                <iframe src="https://youtochiempresa.herokuapp.com/" title="ww"></iframe>
+                                <iframe src="https://youtochiempresa.herokuapp.com/" title="ww" frameborder="0" allowfullscreen class="contenidoiframe"  ></iframe>
                             <div contenteditable class=textAria02>
                                Hello, <b>Edit Me First</b>  me.
                             </div>
@@ -270,7 +278,7 @@ body{
             <div id="postIt04">
                         <div class=topBar03>EMPLEADO</div>
                          <div class=form03>
-                                <iframe src="https://youtochifuturo2.herokuapp.com/" title="ww"></iframe>
+                                <iframe src="https://youtochifuturo2.herokuapp.com/" title="ww" frameborder="0" allowfullscreen class="contenidoiframe"></iframe>
                             <div contenteditable class=textAria03>
                                Hello, <b>Edit Me First</b>  me.
                             </div>
@@ -280,7 +288,7 @@ body{
             <div id="postIt05">
                         <div class=topBar04>SERVICIOS</div>
                          <div class=form04>
-                                <iframe src="https://youtochiservicios.herokuapp.com/" title="ww"></iframe>
+                                <iframe src="https://youtochiservicios.herokuapp.com/" title="ww" frameborder="0" allowfullscreen class="contenidoiframe"></iframe>
                             <div contenteditable class=textAria04>
                                Hello, <b>Edit Me First</b>  me.
                             </div>
@@ -292,7 +300,7 @@ body{
             <div id="postIt06">
                         <div class=topBar02>SOLICITUDES</div>
                          <div class=form02>
-                                <iframe src="https://youtochisolicitudes.herokuapp.com/" title="ww"></iframe>
+                                <iframe src="https://youtochisolicitudes.herokuapp.com/" title="ww" frameborder="0" allowfullscreen class="contenidoiframe"></iframe>
                             <div contenteditable class=textAria02>
                                Hello, <b>Edit Me First</b>  me.
                             </div>
@@ -355,7 +363,13 @@ function muestraEmpleados() {
 
 }
 
+function muestraSolicitudes() {
+    document.getElementById('postIt03').style.display="none";
+    document.getElementById('postIt04').style.display="none";
+    document.getElementById('postIt05').style.display="none";
+    document.getElementById('postIt06').style.display="block";
 
+}
 </script>
 
 </html>
