@@ -17,7 +17,7 @@
              right: 50,width: 150px; height: 50px; padding: 0.5em,background-color:#9a9aff; }             
   </style>
      <script>
-        alert("sii4");
+        alert("sii5");
         
           $( function() {
     $( "#draggable" ).draggable();
@@ -224,12 +224,20 @@ body{
 
 
 <body>
-   <div  class="topMenu01">
+   <div  class="topMenu01"  onclick="muestraEmpresas()">
        <p>Empresas</p>
    </div>
-      <div class="topMenu02">
+      <div class="topMenu02"  onclick="muestraEmpleados()">
   <p>Empleados</p>
 </div>
+
+      <div class="topMenu02"  onclick="muestraServicios()">
+  <p>Servicios</p>
+</div>
+      <div class="topMenu02"  onclick="muestraSolicitudes()">
+  <p>Solicitudes</p>
+</div>
+
     <div class="main">
         <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
             <div class="uk-navbar-left">
@@ -327,5 +335,32 @@ body{
     </div>
     <% include includes/footer.ejs %>
 </body>
+<script>
+
+function muestraEmpresas() {
+    document.getElementById('postIt03').style.display="block";
+    document.getElementById('postIt04').style.display="none";
+    document.getElementById('postIt05').style.display="none";
+    document.getElementById('postIt06').style.display="none";
+
+}
+function muestraServicios() {
+    document.getElementById('postIt03').style.display="none";
+    document.getElementById('postIt04').style.display="none";
+    document.getElementById('postIt05').style.display="block";
+    document.getElementById('postIt06').style.display="none";
+
+}
+
+function muestraEmpleados() {
+    document.getElementById('postIt03').style.display="none";
+    document.getElementById('postIt04').style.display="block";
+    document.getElementById('postIt05').style.display="none";
+    document.getElementById('postIt06').style.display="none";
+
+}
+
+
+</script>
 
 </html>
