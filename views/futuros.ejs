@@ -17,7 +17,7 @@
              right: 50,width: 150px; height: 50px; padding: 0.5em,background-color:#9a9aff; }             
   </style>
      <script>
-        alert("sii7");
+        alert("sii8");
         
           $( function() {
     $( "#draggable" ).draggable();
@@ -226,6 +226,7 @@ body{
 
 
 <body style="background-color:##2e2e49;">
+
    <div  class="topMenu01"  onclick="muestraEmpresas()">
        <p>Empresas</p>
    </div>
@@ -245,9 +246,10 @@ body{
             <div class="uk-navbar-left">
                 <a class="uk-navbar-item uk-logo" href="/admin/dashboard/"><img src="/images/logochallenge.png" width="100" height="100"/></a>
                 <ul class="uk-navbar-nav">
-                    <li class="uk-active"><a href=""></a></li>
-                    <li class="uk-parent"><a href=""></a></li>
-                    <li><a href=""></a></li>
+                    <li class="uk-active"><a href="javascript:void(0)" onclick="muestraEmpresas()">Empresas</a></li>
+                    <li class="uk-parent"><a href="javascript:void(0)"  onclick="muestraEmpleados()">Empleados</a></li>
+                    <li class="uk-parent"><a href="javascript:void(0)"  onclick="muestraServicios()">Servicios</a></li>
+                    <li class="uk-parent"><a href="javascript:void(0)"  onclick="muestraSolicitudes()">Solicitudes</a></li>
                 </ul>
             </div>
             <div class="uk-navbar-right">
