@@ -20,7 +20,7 @@
     "cookie-parser": "^1.4.3",
     "dotenv": "^4.0.0",
     "ejs": "^2.5.6",
-    "express": "^4.15.3",
+    "express": "^4.17.3",
     "express-session": "^1.15.4",
     "json2csv": "^4.4.1",
     "jsonwebtoken": "^7.4.1",
